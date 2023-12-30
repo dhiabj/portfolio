@@ -4,6 +4,7 @@ import GithubIcon from '../../../public/github-icon.svg';
 import LinkedinIcon from '../../../public/linkedin-icon.svg';
 import Link from 'next/link';
 import Image from 'next/image';
+import { toast } from 'react-toastify';
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -36,6 +37,7 @@ const EmailSection = () => {
     if (response.status === 200) {
       console.log('Message sent.');
       setEmailSubmitted(true);
+      toast.success('Email sent successfully!');
     }
   };
 
