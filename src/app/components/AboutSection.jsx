@@ -87,7 +87,7 @@ const TAB_DATA = [
     content: (
       <ul className="list-disc pl-2">
         <li>
-          Higher Institute of Applied Sciences andTechnology of Mateur (ISSATM)
+          Higher Institute of Applied Sciences and Technology of Mateur (ISSATM)
         </li>
         <li>Private High School of Engineering and Technologies (ESPRIT)</li>
       </ul>

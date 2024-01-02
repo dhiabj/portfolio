@@ -9,7 +9,7 @@ const projectsData = [
     id: 1,
     title: 'Campside',
     description:
-      'Campside is a social network dedicated to camping enthusiasts. The platform aims to simplify the process of sharing and discovering camping spots. Users can communicate, share experiences, and contribute to forums on the platform. Campside provides a space for campers to connect, fostering a community centered around outdoor experiences. The focus is on creating a user-friendly environment for individuals who share a passion for camping to interact and exchange information.',
+      'A social network called Campside is devoted to those who enjoy camping. The platform attempts to make sharing and finding camping locations easier. On the site, users can interact with each other, exchange experiences, and post in forums. Campside offers a social hub for campers, encouraging a community built around outdoor adventures. The goal is to establish a user-friendly space where people who are passionate about camping can communicate and share knowledge.',
     image: '/images/projects/1.png',
     tag: ['All', 'Web'],
   },
@@ -17,7 +17,7 @@ const projectsData = [
     id: 2,
     title: 'Eco-Volunteers',
     description:
-      'EcoVolunteers is a social network designed to facilitate communication among volunteers involved in charitable activities. The platform provides a space for volunteers to connect, meet, and share their experiences and achievements. Through forums, members can engage in discussions related to their charitable work, fostering a community focused on making a positive impact. EcoVolunteers aims to enhance collaboration and communication within the charitable sector, creating a supportive environment for those dedicated to giving back.',
+      'A social network called EcoVolunteers was created to let volunteers engaged in humanitarian action communicate with one another. The platform gives volunteers a place to meet, communicate, and exchange accomplishments and experiences. Members can converse about their charity endeavors in forums, creating a community that is committed to having a beneficial influence. With the goal of fostering a positive atmosphere for individuals committed to giving back, EcoVolunteers seeks to improve cooperation and communication within the nonprofit sector.',
     image: '/images/projects/2.png',
     tag: ['All', 'Web'],
   },
@@ -25,7 +25,7 @@ const projectsData = [
     id: 3,
     title: 'Client portal redesign',
     description:
-      'Front Row, a prominent player in the Technology, Information, and Internet industry, has been a key partner for leading brands since its inception in 2011. During my internship with the company, I spearheaded the redesign of our client portal page. Through a thorough analysis of the existing design, collaboration with the development team, and solicitation of user feedback, I successfully delivered a revamped portal. The result was a more user-friendly and visually appealing interface, contributing significantly to an enhanced online experience for our clients.',
+      "Since its founding in 2011, Front Row, a well-known participant in the technology, information, and internet sector, has been a crucial business partner for well-known companies. I was in charge of the company's client portal page makeover during my internship. I was able to deliver a redesigned portal by carefully examining the current design, working with the development team, and getting user feedback. The end result was an interface that was easier to use and more aesthetically pleasing, which greatly improved our clients' online experiences.",
     image: '/images/projects/3.png',
     tag: ['All', 'Web'],
   },
@@ -33,7 +33,7 @@ const projectsData = [
     id: 4,
     title: '4You',
     description:
-      "4You is a cross-platform project designed for a restaurant, focusing on providing customers with a delivery service and the ability to customize orders according to different dietary preferences. My involvement in the project included contributing to its development, aiming to create a seamless and integrated system for users. The emphasis is on functionality and flexibility, allowing customers to enjoy the restaurant's offerings in a way that suits their individual dietary requirements.",
+      "The goal of the cross-platform project 4You, which was created for a restaurant, is to provide patrons the option to customize their orders based on various dietary requirements and receive a delivery service. As part of my role in the project, I helped build it with the goal of giving users a smooth, integrated experience. Functionality and adaptability are prioritized so that patrons can take advantage of the restaurant's offerings in a way that best meets their unique dietary needs.",
     image: '/images/projects/4.png',
     tag: ['All', 'Mobile'],
   },
