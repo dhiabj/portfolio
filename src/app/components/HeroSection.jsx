@@ -20,7 +20,7 @@ const HeroSection = () => {
             </span>
             <br></br>
             <TypeAnimation
-              sequence={['Dhia', 1000, 'Web Developer', 1000]}
+              sequence={['Dhia', 1000, 'Software Engineer', 1000]}
               wrapper="span"
               speed={50}
               repeat={Infinity}
@@ -36,7 +36,7 @@ const HeroSection = () => {
               Hire Me
             </Link>
             <Link
-              href="https://drive.google.com/file/d/1hkGsi81Og_lqTMlDyLz2R-t7Llrnzhl4/view?usp=sharing"
+              href="https://drive.google.com/file/d/1JVc28-aksa-cjKQYSgJFnlkg0vP0PDg1/view?usp=sharing"
               target="_blank"
               className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3">
               <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">

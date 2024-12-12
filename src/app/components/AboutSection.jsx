@@ -67,13 +67,19 @@ const TAB_DATA = [
           alt="mysql"
         />
         <Image
-          src="/images/tech/docker.png"
+          src="/images/tech/spring.png"
           width={50}
           height={50}
-          alt="docker"
+          alt="spring"
         />
         <Image
-          src="/images/tech/spring.png"
+          src="/images/tech/firebase.png"
+          width={50}
+          height={50}
+          alt="spring"
+        />
+        <Image
+          src="/images/tech/symfony.png"
           width={50}
           height={50}
           alt="spring"
@@ -86,10 +92,10 @@ const TAB_DATA = [
     id: 'education',
     content: (
       <ul className="list-disc pl-2">
+        <li>Private High School of Engineering and Technologies (ESPRIT)</li>
         <li>
           Higher Institute of Applied Sciences and Technology of Mateur (ISSATM)
         </li>
-        <li>Private High School of Engineering and Technologies (ESPRIT)</li>
       </ul>
     ),
   },
