@@ -29,7 +29,7 @@ const projectsData = [
     id: 3,
     title: '4You',
     description:
-      "4You is a Web, Desktop and mobile application for a restaurant that offers customers a delivery service and customization for any type of diet. Features including the ability for customers to rate dishes and leave detailed reviews and personalized menu options.",
+      "4You is a Web, Desktop and mobile application for a restaurant that offers customers a delivery service and customization for any type of diet. Features including the ability for customers to rate dishes and leave detailed reviews.",
     image: '/images/projects/4.png',
     tag: ['All', 'Web'],
     gitUrl: 'https://github.com/dhiabj/4You.git',
