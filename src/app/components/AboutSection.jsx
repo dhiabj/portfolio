@@ -136,10 +136,11 @@ const AboutSection = () => {
           <p className="text-base lg:text-lg">
             I am a full-stack developer with a passion for creating interactive
             and responsive web applications. I have experience working with
-            JavaScript, TypeScript, React, Redux, Node.js, Symfony, MongoDB,
-            HTML, CSS, Tailwind CSS, and Git. I am a quick learner, always
-            looking to expand my knowledge and skill set. As a team player, I am
-            excited to collaborate with others to create amazing applications.
+            JavaScript, TypeScript, React, React Native, Redux, Node.js,
+            Symfony, MongoDB, HTML, CSS, Tailwind CSS, and Git. I am a quick
+            learner, always looking to expand my knowledge and skill set. As a
+            team player, I am excited to collaborate with others to create
+            amazing applications.
           </p>
           <div className="flex flex-row justify-start mt-8">
             <TabButton
