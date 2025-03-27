@@ -53,12 +53,6 @@ const TAB_DATA = [
         />
         <Image src="/images/tech/html.png" width={50} height={50} alt="html" />
         <Image src="/images/tech/css.png" width={50} height={50} alt="css" />
-        <Image
-          src="/images/tech/angular.png"
-          width={50}
-          height={50}
-          alt="angular"
-        />
         <Image src="/images/tech/git.png" width={50} height={50} alt="git" />
         <Image
           src="/images/tech/mysql.png"
@@ -67,17 +61,12 @@ const TAB_DATA = [
           alt="mysql"
         />
         <Image
-          src="/images/tech/spring.png"
-          width={50}
-          height={50}
-          alt="spring"
-        />
-        <Image
           src="/images/tech/firebase.png"
           width={50}
           height={50}
           alt="spring"
         />
+        <Image src="/images/tech/php.png" width={50} height={50} alt="php" />
         <Image
           src="/images/tech/symfony.png"
           width={50}
