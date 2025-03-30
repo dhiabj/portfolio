@@ -23,6 +23,7 @@ const projectsData = [
     image: '/images/projects/2.png',
     tag: ['All', 'Web'],
     gitUrl: 'https://github.com/dhiabj/campside.git',
+    previewUrl: 'https://campside-auym.vercel.app/',
     skills: [
       'Mongodb',
       'Express.js',
