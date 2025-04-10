@@ -27,11 +27,18 @@ const TAB_DATA = [
           height={50}
           alt="reactjs"
         />
+        <Image src="/images/tech/vue.png" width={50} height={50} alt="vuejs" />
         <Image
           src="/images/tech/redux.png"
           width={50}
           height={50}
           alt="redux"
+        />
+        <Image
+          src="/images/tech/pinia.png"
+          width={50}
+          height={50}
+          alt="pinia"
         />
         <Image
           src="/images/tech/typescript.png"
