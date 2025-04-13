@@ -20,4 +20,4 @@ If you want to run locally:
 git clone https://github.com/dhiabj/portfolio.git
 cd portfolio
 npm install
-npm start
+npm run dev
