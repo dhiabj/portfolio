@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { CheckIcon } from '@heroicons/react/24/solid';
 import GithubIcon from '../../../public/github-icon.svg';
 import LinkedinIcon from '../../../public/linkedin-icon.svg';
 import Link from 'next/link';
@@ -63,7 +64,7 @@ const EmailSection = () => {
           </h2>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-muted">
             I&apos;m open to new roles and freelance work. Send a note about
-            what you&apos;re building and I&apos;ll reply — the inbox is always
+            what you&apos;re building and I&apos;ll reply, the inbox is always
             open.
           </p>
 
@@ -90,16 +91,16 @@ const EmailSection = () => {
           </div>
         </div>
 
-        {/* Right — form */}
+        {/* Right: form */}
         <div className="rounded-xl border border-line bg-panel p-6 lg:p-8">
           {submitState === 'success' ? (
             <div className="flex h-full flex-col items-center justify-center gap-3 py-12 text-center">
               <div className="flex items-center gap-2 rounded-full border border-teal-dim bg-teal/10 px-4 py-2 font-mono text-xs text-teal">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal animate-pulse-dot" />
+                <CheckIcon className="h-3.5 w-3.5 text-teal" />
                 message sent
               </div>
               <p className="max-w-xs text-sm text-muted">
-                Thanks for reaching out — I&apos;ll get back to you soon.
+                Thanks for reaching out, I&apos;ll get back to you soon.
               </p>
             </div>
           ) : (
@@ -160,7 +161,7 @@ const EmailSection = () => {
               </div>
               {submitState === 'error' && (
                 <p className="text-xs text-red-400">
-                  Something went wrong — please email me directly at{' '}
+                  Something went wrong, please email me directly at{' '}
                   <a
                     href={`mailto:${FALLBACK_EMAIL}`}
                     className="text-teal underline">
