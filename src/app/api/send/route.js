@@ -23,6 +23,11 @@ export async function POST(req) {
 
   const { email, subject, message } = parsed.data;
 
+  if (!process.env.TO_EMAIL) {
+    console.error('TO_EMAIL environment variable is not set');
+    return NextResponse.json({ ok: false, error: 'Failed to send message' }, { status: 500 });
+  }
+
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {

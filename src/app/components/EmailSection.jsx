@@ -8,7 +8,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { contactSchema } from '@/lib/contactSchema';
 
-const FALLBACK_EMAIL = process.env.NEXT_PUBLIC_CONTACT_FALLBACK_EMAIL;
+const FALLBACK_EMAIL = process.env.NEXT_PUBLIC_CONTACT_FALLBACK_EMAIL || 'dhia.bejaoui.db@gmail.com';
 
 const EmailSection = () => {
   const [submitState, setSubmitState] = useState('idle'); // 'idle' | 'success' | 'error'
