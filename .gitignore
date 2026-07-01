@@ -33,3 +33,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# superpowers (specs/plans/scratch workflow docs)
+docs/superpowers/
+.superpowers/
