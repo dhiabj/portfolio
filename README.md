@@ -5,7 +5,7 @@
 A modern portfolio website showcasing my projects, skills, and experience as a developer. Built to demonstrate technical capabilities and design aesthetic.
 
 
-[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://www.dhiabejaoui.com/) 
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://dhia-portfolio.vercel.app/) 
 
 ## Features ✨
 - Responsive design

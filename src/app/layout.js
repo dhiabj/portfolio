@@ -11,7 +11,7 @@ export const metadata = {
   },
   description:
     "Welcome to Dhia Bejaoui's portfolio. Explore projects, skills, and experiences in full-stack web development, including JavaScript, TypeScript, React, Redux, Node.js, Express.js, MongoDB, HTML, CSS, Git and more!.",
-  metadataBase: new URL('https://www.dhiabejaoui.com/'),
+  metadataBase: new URL('https://dhia-portfolio.vercel.app/'),
   keywords: [
     'Next.js',
     'React.js',
@@ -41,7 +41,7 @@ export const metadata = {
     'Dhia Bejaoui',
   ],
   image: '/images/hero-image.png',
-  url: 'https://www.dhiabejaoui.com/',
+  url: 'https://dhia-portfolio.vercel.app/',
   siteName: 'Dhia Bejaoui Portfolio',
 };
 

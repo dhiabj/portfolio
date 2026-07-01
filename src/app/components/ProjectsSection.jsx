@@ -6,6 +6,17 @@ import { motion, useInView } from 'framer-motion';
 const projectsData = [
   {
     id: 1,
+    title: 'Weather App',
+    description:
+      'A simple single-page responsive weather app developed using Nextjs, TypeScript, and Tailwind CSS that displays current weather information for any location worldwide. The app utilizes the OpenWeather API for weather data and features dynamic backgrounds, search history, and unit conversion.',
+    image: '/images/projects/2.png',
+    tag: ['All', 'Web'],
+    gitUrl: 'https://github.com/dhiabj/weather-app.git',
+    previewUrl: 'https://weather-app-beryl-seven-94.vercel.app/',
+    skills: ['Next.js', 'TypeScript', 'Tailwind CSS', 'OpenWeather API', 'Git'],
+  },
+  {
+    id: 2,
     title: 'CodeSensei',
     description:
       "Code Sensei is an intelligent code review application that helps developers improve their code quality through AI-powered analysis. Built with modern web technologies, it supports multiple programming languages and provides actionable feedback using Google Gemini's AI capabilities.",
@@ -34,15 +45,27 @@ const projectsData = [
     ],
   },
   {
-    id: 2,
-    title: 'Weather App',
+    id: 3,
+    title: 'Sarrafli',
     description:
-      'A simple single-page responsive weather app developed using Nextjs, TypeScript, and Tailwind CSS that displays current weather information for any location worldwide. The app utilizes the OpenWeather API for weather data and features dynamic backgrounds, search history, and unit conversion.',
-    image: '/images/projects/2.png',
+      'Sarrafli is a full-stack web app aggregating live currency exchange rates from 13 Tunisian banks and the Central Bank of Tunisia (BCT). It features a trilingual (French/English/Arabic) RTL experience, an async scraping pipeline with scheduled jobs, automatic retries, and email alerts on failure.',
+    image: '/images/projects/3.png',
     tag: ['All', 'Web'],
-    gitUrl: 'https://github.com/dhiabj/weather-app.git',
-    previewUrl: 'https://weather-app-beryl-seven-94.vercel.app/',
-    skills: ['Next.js', 'TypeScript', 'Tailwind CSS', 'OpenWeather API', 'Git'],
+    previewUrl: 'https://sarrafli.net/',
+    skills: [
+      'Next.js',
+      'TypeScript',
+      'FastAPI',
+      'MongoDB',
+      'next-intl',
+      'APScheduler',
+      'TanStack Query',
+      'Zod',
+      'Untitled UI',
+      'GitHub Actions',
+      'Docker',
+      'Git',
+    ],
   },
 ];
 
