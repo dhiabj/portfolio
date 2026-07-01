@@ -2,6 +2,17 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { contactSchema } from '@/lib/contactSchema';
 
+function escapeHtml(text) {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+  };
+  return text.replace(/[&<>"']/g, (char) => map[char]);
+}
+
 export async function POST(req) {
   const body = await req.json();
   const parsed = contactSchema.safeParse(body);
@@ -20,13 +31,7 @@ export async function POST(req) {
       to: [process.env.TO_EMAIL],
       replyTo: email,
       subject: `Portfolio contact: ${subject}`,
-      react: (
-        <div>
-          <p>From: {email}</p>
-          <h1>{subject}</h1>
-          <p>{message}</p>
-        </div>
-      ),
+      html: `<p>From: ${escapeHtml(email)}</p><h1>${escapeHtml(subject)}</h1><p>${escapeHtml(message)}</p>`,
     });
 
     if (error) {
