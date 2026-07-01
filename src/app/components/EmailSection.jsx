@@ -1,129 +1,117 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import GithubIcon from '../../../public/github-icon.svg';
 import LinkedinIcon from '../../../public/linkedin-icon.svg';
 import Link from 'next/link';
 import Image from 'next/image';
-import { toast } from 'react-toastify';
 
 const EmailSection = () => {
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
-
-  const handleSubmit = async (e) => {
+  // TODO: Contact form submission to be reimplemented from scratch.
+  // The UI below is intentionally left intact; wire up a handler here.
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = '/api/send';
-
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: 'POST',
-      // Tell the server we're sending JSON.
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    };
-
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
-
-    if (response.status === 200) {
-      console.log('Message sent.');
-      setEmailSubmitted(true);
-      toast.success('Email sent successfully!');
-    }
   };
+
+  const inputClasses =
+    'w-full rounded-md border border-line bg-ink/60 px-3.5 py-2.5 text-sm text-text placeholder-faint transition-colors focus:border-teal focus:outline-none';
 
   return (
     <section
       id="contact"
-      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
-      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
-      <div className="z-10">
-        <h5 className="text-xl font-bold text-white my-2">
-          Let&apos;s Connect
-        </h5>
-        <p className="text-[#ADB7BE] mb-4 max-w-md">
-          {' '}
-          I&apos;m currently looking for new opportunities, my inbox is always
-          open. Whether you have a question or just want to say hi, I&apos;ll
-          try my best to get back to you!
-        </p>
-        <div className="socials flex flex-row gap-2">
-          <Link href="https://github.com/dhiabj" target="_blank">
-            <Image src={GithubIcon} alt="Github Icon" />
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/dhia-bejaoui-147b98200/"
-            target="_blank">
-            <Image src={LinkedinIcon} alt="Linkedin Icon" />
-          </Link>
-        </div>
-      </div>
-      <div>
-        {emailSubmitted ? (
-          <p className="text-green-500 text-sm mt-2">
-            Email sent successfully!
+      className="scroll-mt-24 border-t border-line py-20 lg:py-28">
+      <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        {/* Left */}
+        <div>
+          <p className="eyebrow mb-4">
+            <span className="text-teal">{'//'}</span> contact
           </p>
-        ) : (
-          <form className="flex flex-col" onSubmit={handleSubmit}>
-            <div className="mb-6">
+          <h2 className="font-display text-3xl font-bold tracking-tight text-text sm:text-4xl">
+            Let&apos;s build something that lasts.
+          </h2>
+          <p className="mt-5 max-w-md text-lg leading-relaxed text-muted">
+            I&apos;m open to new roles and freelance work. Send a note about
+            what you&apos;re building and I&apos;ll reply — the inbox is always
+            open.
+          </p>
+
+          <div className="mt-8 flex items-center gap-2 rounded-full border border-teal-dim bg-teal/10 px-4 py-2 font-mono text-xs text-teal w-fit">
+            <span className="h-1.5 w-1.5 rounded-full bg-teal animate-pulse-dot" />
+            available for work
+          </div>
+
+          <div className="mt-8 flex items-center gap-3">
+            <Link
+              href="https://github.com/dhiabj"
+              target="_blank"
+              aria-label="GitHub"
+              className="flex h-11 w-11 items-center justify-center rounded-md border border-line bg-panel-2 transition-colors hover:border-teal">
+              <Image src={GithubIcon} alt="" className="h-5 w-5" />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/dhia-bejaoui-147b98200/"
+              target="_blank"
+              aria-label="LinkedIn"
+              className="flex h-11 w-11 items-center justify-center rounded-md border border-line bg-panel-2 transition-colors hover:border-teal">
+              <Image src={LinkedinIcon} alt="" className="h-5 w-5" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Right — form (UI only; submission not yet wired up) */}
+        <div className="rounded-xl border border-line bg-panel p-6 lg:p-8">
+          <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+            <div>
               <label
                 htmlFor="email"
-                className="text-white block mb-2 text-sm font-medium">
-                Your Email
+                className="mb-2 block font-mono text-xs uppercase tracking-label text-faint">
+                your email
               </label>
               <input
                 name="email"
                 type="email"
                 id="email"
                 required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="jacob@google.com"
+                className={inputClasses}
+                placeholder="you@company.com"
               />
             </div>
-            <div className="mb-6">
+            <div>
               <label
                 htmlFor="subject"
-                className="text-white block text-sm mb-2 font-medium">
-                Subject
+                className="mb-2 block font-mono text-xs uppercase tracking-label text-faint">
+                subject
               </label>
               <input
                 name="subject"
                 type="text"
                 id="subject"
                 required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Just saying hi"
+                className={inputClasses}
+                placeholder="What's this about?"
               />
             </div>
-            <div className="mb-6">
+            <div>
               <label
                 htmlFor="message"
-                className="text-white block text-sm mb-2 font-medium">
-                Message
+                className="mb-2 block font-mono text-xs uppercase tracking-label text-faint">
+                message
               </label>
               <textarea
                 name="message"
                 id="message"
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Let's talk about..."
+                rows={4}
+                required
+                className={`${inputClasses} resize-none`}
+                placeholder="Tell me about the project…"
               />
             </div>
             <button
               type="submit"
-              className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full">
-              Send Message
+              className="rounded-md bg-amber px-5 py-3 font-mono text-sm font-medium text-ink transition-colors hover:bg-amber/90">
+              send message →
             </button>
           </form>
-        )}
+        </div>
       </div>
     </section>
   );

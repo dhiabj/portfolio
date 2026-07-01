@@ -1,67 +1,79 @@
 import React from 'react';
-import { CodeBracketIcon, EyeIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
+import { CodeBracketIcon, ArrowUpRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 
-const getRandomColor = () => {
-  const colors = [
-    'text-red-500',
-    'text-blue-500',
-    'text-green-500',
-    'text-yellow-500',
-    'text-purple-500',
-    'text-pink-500',
-    'text-teal-500',
-    'text-indigo-500',
-    'text-orange-500',
-  ];
-  const randomIndex = Math.floor(Math.random() * colors.length);
-  return colors[randomIndex];
-};
-
 const ProjectCard = ({
+  index,
   imgUrl,
   title,
+  kind,
   description,
   gitUrl,
   skills,
   previewUrl,
 }) => {
   return (
-    <div>
-      <div
-        className="h-52 md:h-72 rounded-t-xl relative group"
-        style={{ background: `url(${imgUrl})`, backgroundSize: 'cover' }}>
-        <div className="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500 ">
-          {gitUrl && (
-            <Link
-              href={gitUrl}
-              className="h-14 w-14 mr-2 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
-              target="_blank">
-              <CodeBracketIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" />
-            </Link>
-          )}
+    <article className="group overflow-hidden rounded-xl border border-line bg-panel transition-colors hover:border-line/80 md:grid md:grid-cols-[minmax(0,42%)_1fr]">
+      {/* Preview */}
+      <div className="relative aspect-[16/10] overflow-hidden border-b border-line md:border-b-0 md:border-r">
+        <Image
+          src={imgUrl}
+          alt={`${title} preview`}
+          fill
+          sizes="(max-width: 768px) 100vw, 42vw"
+          className="object-cover object-top opacity-90 transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-panel/60 to-transparent" />
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col p-6 lg:p-8">
+        <div className="flex items-center justify-between font-mono text-xs">
+          <span className="text-faint">
+            {String(index + 1).padStart(2, '0')} · {kind}
+          </span>
+          <span className="flex items-center gap-1.5 text-teal">
+            <span className="h-1.5 w-1.5 rounded-full bg-teal animate-pulse-dot" />
+            live
+          </span>
+        </div>
+
+        <h3 className="mt-3 font-display text-2xl font-bold tracking-tight text-text">
+          {title}
+        </h3>
+        <p className="mt-3 text-sm leading-relaxed text-muted">{description}</p>
+
+        <div className="mt-5 flex flex-wrap gap-2">
+          {skills.map((skill) => (
+            <span
+              key={skill}
+              className="rounded border border-line bg-ink/50 px-2 py-0.5 font-mono text-[11px] text-faint">
+              {skill}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-6 flex items-center gap-3 pt-1">
           {previewUrl && (
             <Link
               href={previewUrl}
               target="_blank"
-              className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link">
-              <EyeIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" />
+              className="flex items-center gap-2 rounded-md bg-amber px-4 py-2 font-mono text-xs font-medium text-ink transition-colors hover:bg-amber/90">
+              visit <ArrowUpRightIcon className="h-3.5 w-3.5" />
+            </Link>
+          )}
+          {gitUrl && (
+            <Link
+              href={gitUrl}
+              target="_blank"
+              className="flex items-center gap-2 rounded-md border border-line bg-panel-2 px-4 py-2 font-mono text-xs text-text transition-colors hover:border-teal hover:text-teal">
+              <CodeBracketIcon className="h-4 w-4" /> source
             </Link>
           )}
         </div>
       </div>
-      <div className="text-white rounded-b-xl mt-3 bg-[#181818]py-6 px-4">
-        <h5 className="text-xl font-semibold mb-2">{title}</h5>
-        <p className="text-[#ADB7BE] mb-2">{description}</p>
-        <div className="flex gap-2 flex-wrap">
-          {skills.map((skill, index) => (
-            <span key={index} className={getRandomColor()}>
-              #{skill}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
+    </article>
   );
 };
 
