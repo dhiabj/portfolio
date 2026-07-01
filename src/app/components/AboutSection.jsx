@@ -1,283 +1,148 @@
-'use client';
-import React, { useTransition, useState } from 'react';
-import Image from 'next/image';
-import TabButton from './TabButton';
+import React from 'react';
 
-const SKILL_BADGES = [
+const SKILL_GROUPS = [
   {
-    label: 'Next.js',
-    className: 'bg-zinc-900 text-zinc-100',
+    label: 'languages',
+    items: ['TypeScript', 'JavaScript', 'Python', 'PHP'],
   },
   {
-    label: 'Node.js',
-    className: 'bg-emerald-900 text-emerald-100',
+    label: 'frontend',
+    items: [
+      'React',
+      'Next.js',
+      'Vue.js',
+      'React Native',
+      'Tailwind CSS',
+      'Redux',
+      'Pinia',
+      'TanStack Query',
+    ],
   },
   {
-    label: 'JavaScript',
-    className: 'bg-blue-200 text-blue-700',
+    label: 'backend',
+    items: ['Node.js', 'Express.js', 'NestJS', 'FastAPI', 'Symfony'],
   },
   {
-    label: 'React',
-    className: 'bg-teal-200 text-teal-800',
+    label: 'data & storage',
+    items: [
+      'MongoDB',
+      'PostgreSQL',
+      'MySQL',
+      'Firebase',
+      'Prisma',
+      'Mongoose',
+    ],
   },
   {
-    label: 'Vue.js',
-    className: 'bg-purple-200 text-purple-700',
+    label: 'testing',
+    items: ['Jest', 'Vitest', 'Playwright', 'Detox'],
   },
   {
-    label: 'Redux',
-    className: 'bg-cyan-200 text-cyan-800',
-  },
-  {
-    label: 'Pinia',
-    className: 'bg-lime-200 text-lime-900',
-  },
-  {
-    label: 'TypeScript',
-    className: 'bg-emerald-200 text-emerald-900',
-  },
-  {
-    label: 'Tailwind CSS',
-    className: 'bg-rose-200 text-rose-800',
-  },
-  {
-    label: 'MongoDB',
-    className: 'bg-amber-200 text-amber-800',
-  },
-  {
-    label: 'HTML5',
-    className: 'bg-orange-200 text-orange-800',
-  },
-  {
-    label: 'CSS3',
-    className: 'bg-sky-200 text-sky-800',
-  },
-  {
-    label: 'Git',
-    className: 'bg-red-200 text-red-800',
-  },
-  {
-    label: 'MySQL',
-    className: 'bg-indigo-200 text-indigo-800',
-  },
-  {
-    label: 'PostgreSQL',
-    className: 'bg-blue-300 text-blue-900',
-  },
-  {
-    label: 'Firebase',
-    className: 'bg-yellow-200 text-yellow-900',
-  },
-  {
-    label: 'PHP',
-    className: 'bg-violet-200 text-violet-800',
-  },
-  {
-    label: 'NestJS',
-    className: 'bg-pink-200 text-pink-800',
-  },
-  {
-    label: 'Symfony',
-    className: 'bg-slate-300 text-slate-900',
-  },
-  {
-    label: 'Python',
-    className: 'bg-blue-900 text-yellow-300',
-  },
-  {
-    label: 'React Native',
-    className: 'bg-teal-300 text-teal-900',
-  },
-  {
-    label: 'Express.js',
-    className: 'bg-gray-300 text-gray-900',
-  },
-  {
-    label: 'FastAPI',
-    className: 'bg-teal-500 text-white',
-  },
-  {
-    label: 'TanStack Query',
-    className: 'bg-red-400 text-red-950',
-  },
-  {
-    label: 'Prisma',
-    className: 'bg-slate-800 text-slate-100',
-  },
-  {
-    label: 'Mongoose',
-    className: 'bg-red-800 text-red-100',
-  },
-  {
-    label: 'Doctrine',
-    className: 'bg-orange-700 text-orange-100',
-  },
-  {
-    label: 'Bootstrap',
-    className: 'bg-purple-700 text-purple-100',
-  },
-  {
-    label: 'Material UI',
-    className: 'bg-blue-600 text-blue-50',
-  },
-  {
-    label: 'Tamagui',
-    className: 'bg-fuchsia-300 text-fuchsia-900',
-  },
-  {
-    label: 'Untitled UI',
-    className: 'bg-gray-800 text-gray-100',
-  },
-  {
-    label: 'Storybook',
-    className: 'bg-pink-400 text-pink-950',
-  },
-  {
-    label: 'Formik',
-    className: 'bg-blue-400 text-blue-950',
-  },
-  {
-    label: 'React Hook Form',
-    className: 'bg-pink-600 text-pink-50',
-  },
-  {
-    label: 'Zod',
-    className: 'bg-indigo-600 text-indigo-50',
-  },
-  {
-    label: 'Yup',
-    className: 'bg-green-300 text-green-900',
-  },
-  {
-    label: 'Jest',
-    className: 'bg-red-600 text-red-50',
-  },
-  {
-    label: 'Detox',
-    className: 'bg-emerald-600 text-emerald-50',
-  },
-  {
-    label: 'Vitest',
-    className: 'bg-lime-400 text-lime-950',
-  },
-  {
-    label: 'Playwright',
-    className: 'bg-green-700 text-green-50',
-  },
-  {
-    label: 'Docker',
-    className: 'bg-sky-600 text-sky-50',
-  },
-  {
-    label: 'GitHub Actions',
-    className: 'bg-slate-700 text-slate-100',
-  },
-  {
-    label: 'APScheduler',
-    className: 'bg-amber-600 text-amber-50',
-  },
-  {
-    label: 'next-intl',
-    className: 'bg-zinc-700 text-zinc-100',
-  },
-  {
-    label: 'Claude Code',
-    className: 'bg-orange-600 text-orange-50',
+    label: 'infra & tooling',
+    items: [
+      'Docker',
+      'GitHub Actions',
+      'Git',
+      'APScheduler',
+      'next-intl',
+      'Zod',
+    ],
   },
 ];
 
-const INITIAL_SKILLS_COUNT = 12;
-
-const SkillsList = () => {
-  const [showAll, setShowAll] = useState(false);
-  const visibleSkills = showAll ? SKILL_BADGES : SKILL_BADGES.slice(0, INITIAL_SKILLS_COUNT);
-  const hiddenCount = SKILL_BADGES.length - INITIAL_SKILLS_COUNT;
-
-  return (
-    <div>
-      <div className="flex flex-wrap gap-4">
-        {visibleSkills.map((badge) => (
-          <span
-            key={badge.label}
-            className={`${badge.className} rounded-full px-4 py-2 text-sm font-semibold shadow-sm transition-transform duration-200 ease-out hover:-translate-y-0.5 hover:scale-105 hover:shadow-md`}>
-            {badge.label}
-          </span>
-        ))}
-      </div>
-      {hiddenCount > 0 && (
-        <button
-          type="button"
-          onClick={() => setShowAll((prev) => !prev)}
-          className="mt-4 text-sm font-semibold text-primary-400 hover:text-primary-300 transition-colors">
-          {showAll ? 'Show less' : `Show more (+${hiddenCount})`}
-        </button>
-      )}
-    </div>
-  );
-};
-
-const TAB_DATA = [
+const CREDENTIALS = [
   {
-    title: 'Skills',
-    id: 'skills',
-    content: <SkillsList />,
+    label: 'education',
+    entries: [
+      ['ESPRIT', 'Engineering & Technologies · Tunis'],
+      ['ISSATM', 'Applied Sciences & Technology · Mateur'],
+    ],
   },
   {
-    title: 'Education',
-    id: 'education',
-    content: (
-      <ul className="list-disc pl-2">
-        <li>Private High School of Engineering and Technologies (ESPRIT)</li>
-        <li>Higher Institute of Applied Sciences and Technology of Mateur (ISSATM)</li>
-      </ul>
-    ),
-  },
-  {
-    title: 'Certifications',
-    id: 'certifications',
-    content: (
-      <ul className="list-disc pl-2">
-        <li>AWS Cloud Practitioner</li>
-        <li>Google Professional Cloud Developer</li>
-      </ul>
-    ),
+    label: 'certifications',
+    entries: [
+      ['AWS', 'Cloud Practitioner'],
+      ['Google Cloud', 'Professional Cloud Developer'],
+    ],
   },
 ];
 
 const AboutSection = () => {
-  const [tab, setTab] = useState('skills');
-  const [isPending, startTransition] = useTransition();
-
-  const handleTabChange = (id) => {
-    startTransition(() => {
-      setTab(id);
-    });
-  };
-
   return (
-    <section className="text-white" id="about">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image src="/images/about-image.png" width={500} height={500} alt="about" priority />
-        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-          <p className="text-base lg:text-lg">
-            I am a full-stack developer with a passion for creating interactive and responsive web
-            applications. I have experience working with JavaScript, TypeScript, React, React
-            Native, Redux, Node.js, Next.js, Symfony, MongoDB, HTML, CSS, Tailwind CSS, and Git. I am a quick
-            learner, always looking to expand my knowledge and skill set. As a team player, I am
-            excited to collaborate with others to create amazing applications.
-          </p>
-          <div className="flex flex-row justify-start mt-8">
-            <TabButton selectTab={() => handleTabChange('skills')} active={tab === 'skills'}>
-              {' '}
-              Skills{' '}
-            </TabButton>
-            <TabButton selectTab={() => handleTabChange('education')} active={tab === 'education'}>
-              {' '}
-              Education{' '}
-            </TabButton>
+    <section id="about" className="scroll-mt-24 py-20 lg:py-28">
+      <p className="eyebrow mb-4">
+        <span className="text-teal">{'//'}</span> about
+      </p>
+
+      <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+        {/* Narrative */}
+        <div>
+          <h2 className="font-display text-3xl font-bold tracking-tight text-text sm:text-4xl">
+            An engineer who thinks in systems, not just screens.
+          </h2>
+          <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted">
+            <p>
+              I work across the whole stack, but I&apos;m happiest where the
+              hard parts live: scraping and normalizing messy data, scheduling
+              jobs that retry and alert when something breaks, and shaping APIs
+              that stay predictable under load.
+            </p>
+            <p>
+              On top of that I build fast, accessible interfaces with React,
+              Next.js and Vue. I like shipping things that run in production and
+              keep running — and I pick up whatever a project needs to get
+              there.
+            </p>
           </div>
-          <div className="mt-8">{TAB_DATA.find((t) => t.id === tab).content}</div>
+
+          {/* Credentials */}
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {CREDENTIALS.map((block) => (
+              <div
+                key={block.label}
+                className="rounded-lg border border-line bg-panel p-5">
+                <p className="eyebrow mb-4">{block.label}</p>
+                <ul className="space-y-3">
+                  {block.entries.map(([name, detail]) => (
+                    <li key={name}>
+                      <p className="font-mono text-sm text-text">{name}</p>
+                      <p className="mt-0.5 text-xs text-faint">{detail}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Skill spec sheet */}
+        <div className="rounded-xl border border-line bg-panel">
+          <div className="flex items-center justify-between border-b border-line bg-panel-2 px-5 py-3">
+            <span className="font-mono text-xs text-faint">stack.spec</span>
+            <span className="font-mono text-xs text-faint">
+              {SKILL_GROUPS.reduce((n, g) => n + g.items.length, 0)} entries
+            </span>
+          </div>
+          <div className="divide-y divide-line-soft">
+            {SKILL_GROUPS.map((group) => (
+              <div
+                key={group.label}
+                className="grid gap-3 px-5 py-4 sm:grid-cols-[120px_1fr] sm:gap-5">
+                <p className="pt-1 font-mono text-xs uppercase tracking-label text-teal">
+                  {group.label}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded border border-line bg-ink/50 px-2.5 py-1 font-mono text-xs text-text transition-colors hover:border-amber hover:text-amber">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

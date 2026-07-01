@@ -3,25 +3,62 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #0e1116;
+  color: #e6eaef;
+  /* Faint engineering grid — reads as a console backdrop, kept very low contrast */
+  background-image: linear-gradient(#1e2732 1px, transparent 1px),
+    linear-gradient(90deg, #1e2732 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: -1px -1px;
+}
+
+/* Monospace utility label — the recurring structural device of the page */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8a97a6;
+}
+
+/* Subtle top-glow behind hero without a hard gradient blob */
+.hero-glow {
+  background: radial-gradient(
+    60% 55% at 20% 0%,
+    rgba(232, 161, 58, 0.08),
+    transparent 70%
+  );
+}
+
+::selection {
+  background: rgba(58, 166, 160, 0.3);
+  color: #ffffff;
+}
+
+/* Focus visibility — quality floor */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #3aa6a0;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
