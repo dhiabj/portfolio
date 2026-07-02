@@ -90,7 +90,7 @@ const AboutSection = () => {
             <p>
               On top of that I build fast, accessible interfaces with React,
               Next.js and Vue. I like shipping things that run in production and
-              keep running — and I pick up whatever a project needs to get
+              keep running, and I pick up whatever a project needs to get
               there.
             </p>
           </div>

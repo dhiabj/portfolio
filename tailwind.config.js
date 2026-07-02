@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Instrument / console palette — warm-cool signal system
+        // Instrument / console palette, warm-cool signal system
         ink: '#0E1116', // base background (near-black, slight cool)
         panel: '#151A21', // raised panel
         'panel-2': '#1B222B', // card / input surface
@@ -17,9 +17,9 @@ module.exports = {
         text: '#E6EAEF', // primary text
         muted: '#8A97A6', // secondary text
         faint: '#78848F', // tertiary / captions (AA on ink)
-        amber: '#E8A13A', // primary signal — active / building / CTA
+        amber: '#E8A13A', // primary signal, active / building / CTA
         'amber-dim': '#8A6425',
-        teal: '#3AA6A0', // secondary signal — healthy / live / links
+        teal: '#3AA6A0', // secondary signal, healthy / live / links
         'teal-dim': '#245F5B',
       },
       fontFamily: {

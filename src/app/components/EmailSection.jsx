@@ -2,13 +2,15 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { CheckIcon } from '@heroicons/react/24/solid';
 import GithubIcon from '../../../public/github-icon.svg';
 import LinkedinIcon from '../../../public/linkedin-icon.svg';
 import Link from 'next/link';
 import Image from 'next/image';
 import { contactSchema } from '@/lib/contactSchema';
 
-const FALLBACK_EMAIL = process.env.NEXT_PUBLIC_CONTACT_FALLBACK_EMAIL || 'dhia.bejaoui.db@gmail.com';
+const FALLBACK_EMAIL =
+  process.env.NEXT_PUBLIC_CONTACT_FALLBACK_EMAIL || 'dhia.bejaoui.db@gmail.com';
 
 const EmailSection = () => {
   const [submitState, setSubmitState] = useState('idle'); // 'idle' | 'success' | 'error'
@@ -49,9 +51,7 @@ const EmailSection = () => {
   const errorClasses = 'mt-1.5 text-xs text-red-400';
 
   return (
-    <section
-      id="contact"
-      className="scroll-mt-24 border-t border-line py-20 lg:py-28">
+    <section id="contact" className="scroll-mt-24 border-t border-line py-20 lg:py-28">
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
         {/* Left */}
         <div>
@@ -62,9 +62,8 @@ const EmailSection = () => {
             Let&apos;s build something that lasts.
           </h2>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-muted">
-            I&apos;m open to new roles and freelance work. Send a note about
-            what you&apos;re building and I&apos;ll reply — the inbox is always
-            open.
+            I&apos;m open to new roles and freelance work. Send a note about what you&apos;re
+            building and I&apos;ll reply, the inbox is always open.
           </p>
 
           <div className="mt-8 flex items-center gap-2 rounded-full border border-teal-dim bg-teal/10 px-4 py-2 font-mono text-xs text-teal w-fit">
@@ -90,23 +89,20 @@ const EmailSection = () => {
           </div>
         </div>
 
-        {/* Right — form */}
+        {/* Right: form */}
         <div className="rounded-xl border border-line bg-panel p-6 lg:p-8">
           {submitState === 'success' ? (
             <div className="flex h-full flex-col items-center justify-center gap-3 py-12 text-center">
               <div className="flex items-center gap-2 rounded-full border border-teal-dim bg-teal/10 px-4 py-2 font-mono text-xs text-teal">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal animate-pulse-dot" />
+                <CheckIcon className="h-3.5 w-3.5 text-teal" />
                 message sent
               </div>
               <p className="max-w-xs text-sm text-muted">
-                Thanks for reaching out — I&apos;ll get back to you soon.
+                Thanks for reaching out, I&apos;ll get back to you soon.
               </p>
             </div>
           ) : (
-            <form
-              className="flex flex-col gap-5"
-              onSubmit={handleSubmit(onSubmit)}
-              noValidate>
+            <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)} noValidate>
               <div>
                 <label
                   htmlFor="email"
@@ -120,9 +116,7 @@ const EmailSection = () => {
                   placeholder="you@company.com"
                   {...register('email')}
                 />
-                {errors.email && (
-                  <p className={errorClasses}>{errors.email.message}</p>
-                )}
+                {errors.email && <p className={errorClasses}>{errors.email.message}</p>}
               </div>
               <div>
                 <label
@@ -137,9 +131,7 @@ const EmailSection = () => {
                   placeholder="What's this about?"
                   {...register('subject')}
                 />
-                {errors.subject && (
-                  <p className={errorClasses}>{errors.subject.message}</p>
-                )}
+                {errors.subject && <p className={errorClasses}>{errors.subject.message}</p>}
               </div>
               <div>
                 <label
@@ -154,16 +146,12 @@ const EmailSection = () => {
                   placeholder="Tell me about the project…"
                   {...register('message')}
                 />
-                {errors.message && (
-                  <p className={errorClasses}>{errors.message.message}</p>
-                )}
+                {errors.message && <p className={errorClasses}>{errors.message.message}</p>}
               </div>
               {submitState === 'error' && (
                 <p className="text-xs text-red-400">
-                  Something went wrong — please email me directly at{' '}
-                  <a
-                    href={`mailto:${FALLBACK_EMAIL}`}
-                    className="text-teal underline">
+                  Something went wrong, please email me directly at{' '}
+                  <a href={`mailto:${FALLBACK_EMAIL}`} className="text-teal underline">
                     {FALLBACK_EMAIL}
                   </a>
                   .

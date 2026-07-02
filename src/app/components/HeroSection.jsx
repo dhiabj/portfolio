@@ -13,7 +13,7 @@ const HeroSection = () => {
     <section className="relative pt-16 pb-8 lg:pt-24 lg:pb-16">
       <div className="hero-glow pointer-events-none absolute inset-0 -z-10" />
       <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-        {/* Left — thesis */}
+        {/* Left: thesis */}
         <div>
           <p
             className="eyebrow mb-6 animate-fade-up"
@@ -35,7 +35,7 @@ const HeroSection = () => {
             className="mt-7 max-w-xl animate-fade-up text-lg leading-relaxed text-muted"
             style={{ animationDelay: '0.2s' }}>
             I&apos;m{' '}
-            <span className="text-text">Dhia Bejaoui</span> — a fullstack
+            <span className="text-text">Dhia Bejaoui</span>, a fullstack
             engineer who ships production systems end to end: data pipelines,
             scheduled jobs, resilient APIs, and the interfaces on top of them.
           </p>
@@ -56,7 +56,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right — signature: live status panel */}
+        {/* Right, signature: live status panel */}
         <div
           className="animate-fade-up"
           style={{ animationDelay: '0.35s' }}>

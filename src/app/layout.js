@@ -24,10 +24,10 @@ const jetBrainsMono = JetBrains_Mono({
 export const metadata = {
   title: {
     template: '%s | Dhia Bejaoui',
-    default: 'Dhia Bejaoui — Fullstack & Systems Engineer',
+    default: 'Dhia Bejaoui, Fullstack & Systems Engineer',
   },
   description:
-    "Dhia Bejaoui is a fullstack and systems engineer in Tunis who builds live data infrastructure — scraping pipelines, scheduled jobs, and production web apps with Next.js, FastAPI, NestJS, TypeScript and more.",
+    "Dhia Bejaoui is a fullstack and systems engineer in Tunis who builds live data infrastructure: scraping pipelines, scheduled jobs, and production web apps with Next.js, FastAPI, NestJS, TypeScript and more.",
   metadataBase: new URL('https://dhia-portfolio.vercel.app/'),
   keywords: [
     'Next.js',
