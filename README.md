@@ -1,7 +1,5 @@
 # Portfolio 🌟
 
-![Screenshot 2025-03-30 144101](https://github.com/user-attachments/assets/196a3365-5833-45ef-ab3e-1052b46c92fc)
-
 A modern portfolio website showcasing my projects, skills, and experience as a developer. Built to demonstrate technical capabilities and design aesthetic.
 
 
