@@ -40,6 +40,7 @@ const SKILL_GROUPS = [
   {
     label: 'infra & tooling',
     items: [
+      'Claude Code',
       'Docker',
       'GitHub Actions',
       'Git',
@@ -61,8 +62,10 @@ const CREDENTIALS = [
   {
     label: 'certifications',
     entries: [
-      ['AWS', 'Cloud Practitioner'],
-      ['Google Cloud', 'Professional Cloud Developer'],
+      ['Claude Code 101', 'Anthropic · completed 2026-Apr-24'],
+      ['Claude Code in Action', 'Anthropic · completed 2026-Apr-24'],
+      ['Introduction to Agent Skills', 'Anthropic · completed 2026-May-05'],
+      ['Introduction to Subagents', 'Anthropic · completed 2026-May-05'],
     ],
   },
 ];
