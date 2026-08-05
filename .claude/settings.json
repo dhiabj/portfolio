@@ -16,15 +16,7 @@
       "Edit(.env.production)",
       "Edit(.env.production.local)",
       "Edit(.env.test)",
-      "Edit(.env.test.local)",
-      "Write(.env)",
-      "Write(.env.local)",
-      "Write(.env.development)",
-      "Write(.env.development.local)",
-      "Write(.env.production)",
-      "Write(.env.production.local)",
-      "Write(.env.test)",
-      "Write(.env.test.local)"
+      "Edit(.env.test.local)"
     ]
   }
 }
