@@ -10,7 +10,7 @@ const nextConfig = {
             value: 'dhia-portfolio.vercel.app',
           },
         ],
-        destination: 'https://dhiabejaoui.com/:path*',
+        destination: 'https://www.dhiabejaoui.com/:path*',
         permanent: true,
       },
     ]
