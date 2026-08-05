@@ -23,7 +23,7 @@ There is no test suite configured in this repo.
 
 ## Architecture
 
-Single-page personal portfolio built with Next.js 13 (App Router) + Tailwind CSS + Framer Motion. Deployed at https://dhia-portfolio.vercel.app/.
+Single-page personal portfolio built with Next.js 13 (App Router) + Tailwind CSS + Framer Motion. Deployed at https://dhiabejaoui.com/ (the old https://dhia-portfolio.vercel.app/ domain redirects to it).
 
 - `src/app/page.js` composes the whole site as one page: `Navbar`, then `HeroSection`, `AboutSection`, `ProjectsSection`, `EmailSection` inside a container, then `Footer`. There is no routing beyond this single page.
 - `src/app/layout.js` sets global metadata (title template/description/keywords for SEO) and loads three Google fonts as CSS variables (`Inter` → `--font-sans`, `Space_Grotesk` → `--font-display`, `JetBrains_Mono` → `--font-mono`).

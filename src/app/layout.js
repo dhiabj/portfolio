@@ -1,5 +1,6 @@
 import './globals.css';
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/siteConfig';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -26,9 +27,8 @@ export const metadata = {
     template: '%s | Dhia Bejaoui',
     default: 'Dhia Bejaoui, Fullstack & Systems Engineer',
   },
-  description:
-    "Dhia Bejaoui is a fullstack and systems engineer in Tunis who builds live data infrastructure: scraping pipelines, scheduled jobs, and production web apps with Next.js, FastAPI, NestJS, TypeScript and more.",
-  metadataBase: new URL('https://dhia-portfolio.vercel.app/'),
+  description: SITE_DESCRIPTION,
+  metadataBase: new URL(SITE_URL),
   keywords: [
     'Next.js',
     'React.js',
@@ -60,9 +60,33 @@ export const metadata = {
     'Systems Engineer',
     'Dhia Bejaoui',
   ],
-  image: '/images/hero-image.png',
-  url: 'https://dhia-portfolio.vercel.app/',
-  siteName: 'Dhia Bejaoui',
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: SITE_NAME,
+    title: 'Dhia Bejaoui, Fullstack & Systems Engineer',
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: '/images/hero-image.png',
+        width: 600,
+        height: 600,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dhia Bejaoui, Fullstack & Systems Engineer',
+    description: SITE_DESCRIPTION,
+    images: ['/images/hero-image.png'],
+  },
 };
 
 export default function RootLayout({ children }) {
