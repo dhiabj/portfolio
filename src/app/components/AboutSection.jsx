@@ -16,6 +16,9 @@ const SKILL_GROUPS = [
       'Redux',
       'Pinia',
       'TanStack Query',
+      'next-intl',
+      'Zod',
+      'React Hook Form',
     ],
   },
   {
@@ -24,14 +27,7 @@ const SKILL_GROUPS = [
   },
   {
     label: 'data & storage',
-    items: [
-      'MongoDB',
-      'PostgreSQL',
-      'MySQL',
-      'Firebase',
-      'Prisma',
-      'Mongoose',
-    ],
+    items: ['MongoDB', 'PostgreSQL', 'MySQL', 'Firebase'],
   },
   {
     label: 'testing',
@@ -39,15 +35,7 @@ const SKILL_GROUPS = [
   },
   {
     label: 'infra & tooling',
-    items: [
-      'Claude Code',
-      'Docker',
-      'GitHub Actions',
-      'Git',
-      'APScheduler',
-      'next-intl',
-      'Zod',
-    ],
+    items: ['Claude Code', 'Docker', 'GitHub Actions', 'Git'],
   },
 ];
 
@@ -85,25 +73,21 @@ const AboutSection = () => {
           </h2>
           <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted">
             <p>
-              I work across the whole stack, but I&apos;m happiest where the
-              hard parts live: scraping and normalizing messy data, scheduling
-              jobs that retry and alert when something breaks, and shaping APIs
-              that stay predictable under load.
+              I work across the whole stack, but I&apos;m happiest where the hard parts live:
+              scraping and normalizing messy data, scheduling jobs that retry and alert when
+              something breaks, and shaping APIs that stay predictable under load.
             </p>
             <p>
-              On top of that I build fast, accessible interfaces with React,
-              Next.js and Vue. I like shipping things that run in production and
-              keep running, and I pick up whatever a project needs to get
-              there.
+              On top of that I build fast, accessible interfaces with React, Next.js and Vue. I like
+              shipping things that run in production and keep running, and I pick up whatever a
+              project needs to get there.
             </p>
           </div>
 
           {/* Credentials */}
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {CREDENTIALS.map((block) => (
-              <div
-                key={block.label}
-                className="rounded-lg border border-line bg-panel p-5">
+              <div key={block.label} className="rounded-lg border border-line bg-panel p-5">
                 <p className="eyebrow mb-4">{block.label}</p>
                 <ul className="space-y-3">
                   {block.entries.map(([name, detail]) => (
