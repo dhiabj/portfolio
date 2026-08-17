@@ -11,7 +11,7 @@ const personJsonLd = {
   '@type': 'Person',
   name: 'Dhia Bejaoui',
   url: SITE_URL,
-  image: `${SITE_URL}/images/hero-image.png`,
+  image: `${SITE_URL}/images/og.png`,
   jobTitle: 'Fullstack & Systems Engineer',
   description: SITE_DESCRIPTION,
   sameAs: [SOCIAL_LINKS.github, SOCIAL_LINKS.linkedin],

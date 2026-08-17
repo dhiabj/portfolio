@@ -75,9 +75,9 @@ export const metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: '/images/hero-image.png',
-        width: 600,
-        height: 600,
+        url: '/images/og.png',
+        width: 1200,
+        height: 630,
       },
     ],
   },
@@ -85,7 +85,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Dhia Bejaoui, Fullstack & Systems Engineer',
     description: SITE_DESCRIPTION,
-    images: ['/images/hero-image.png'],
+    images: ['/images/og.png'],
   },
 };
 

@@ -5,6 +5,23 @@ import { motion, useInView } from 'framer-motion';
 
 const projectsData = [
   {
+    id: 4,
+    title: 'Sparkling',
+    kind: 'company website',
+    description:
+      "The public site for Sparkling Co. Ltd, a Swiss-British software agency and startup studio. Built end to end in under a week using an internal Claude Code plugin, with reusable, type-safe UI components and automated testing baked in from the start.",
+    image: '/images/projects/4.png',
+    previewUrl: 'https://www.sparkling.co.com/',
+    skills: [
+      'Next.js',
+      'Tailwind CSS',
+      'Untitled UI',
+      'React Hook Form',
+      'Zod',
+      'Playwright',
+    ],
+  },
+  {
     id: 3,
     title: 'Sarrafli',
     kind: 'data platform',
@@ -18,6 +35,7 @@ const projectsData = [
       'MongoDB',
       'APScheduler',
       'next-intl',
+      'Untitled UI',
       'Docker',
     ],
   },
