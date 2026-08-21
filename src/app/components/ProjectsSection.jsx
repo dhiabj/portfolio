@@ -37,6 +37,7 @@ const projectsData = [
       'next-intl',
       'Untitled UI',
       'Docker',
+      'Playwright',
     ],
   },
   {
