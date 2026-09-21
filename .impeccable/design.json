@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-21T00:00:00.000Z",
+  "title": "Design System: Dhia Bejaoui Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "oklch(17.7% 0.011 260.6)", "tonalRamp": ["#080b10", "#26292f", "#44484e", "#656970", "#888c93", "#adb1b9", "#d3d8df", "#eaeff6"] },
+      "panel": { "role": "neutral", "displayName": "Panel", "canonical": "oklch(21.6% 0.016 256.8)", "tonalRamp": ["#070b12", "#242931", "#424850", "#636972", "#868d96", "#abb2bb", "#d1d8e2", "#e8eff9"] },
+      "panel-2": { "role": "neutral", "displayName": "Panel Secondary", "canonical": "oklch(24.9% 0.020 254.9)", "tonalRamp": ["#060c13", "#222933", "#414853", "#616a75", "#848d98", "#a9b2be", "#cfd8e5", "#e6effc"] },
+      "line": { "role": "neutral", "displayName": "Line", "canonical": "oklch(30.5% 0.024 251.1)", "tonalRamp": ["#040c15", "#202a35", "#3e4955", "#5f6a77", "#828e9b", "#a6b3c0", "#ccd9e7", "#e3f0ff"] },
+      "line-soft": { "role": "neutral", "displayName": "Line Soft", "canonical": "oklch(26.9% 0.024 253.7)", "tonalRamp": ["#050c15", "#212a35", "#3f4955", "#5f6a77", "#828d9b", "#a7b2c1", "#cdd9e8", "#e4f0ff"] },
+      "text": { "role": "neutral", "displayName": "Text", "canonical": "oklch(93.5% 0.008 253.9)", "tonalRamp": ["#090b0f", "#26292d", "#45484c", "#66696e", "#898c91", "#aeb1b6", "#d4d8dd", "#ebeff4"] },
+      "muted": { "role": "neutral", "displayName": "Muted", "canonical": "oklch(67.1% 0.027 252.0)", "tonalRamp": ["#040c16", "#1f2a36", "#3d4956", "#5e6a78", "#818e9c", "#a5b3c2", "#cbd9e9", "#e2f0ff"] },
+      "faint": { "role": "neutral", "displayName": "Faint", "canonical": "oklch(60.7% 0.022 245.8)", "tonalRamp": ["#040c14", "#202a33", "#3e4953", "#5f6a75", "#828e99", "#a6b3be", "#ccd9e5", "#e3f0fd"] },
+      "amber": { "role": "primary", "displayName": "Signal Amber", "canonical": "oklch(76.1% 0.141 72.1)", "tonalRamp": ["#290000", "#4f1000", "#743400", "#995700", "#c07b00", "#e8a13a", "#ffc765", "#ffdf7d"] },
+      "amber-dim": { "role": "primary", "displayName": "Amber Dim", "canonical": "oklch(53.0% 0.093 76.7)", "tonalRamp": ["#1f0100", "#411f00", "#633f00", "#876121", "#ac8447", "#d3a96c", "#fad091", "#ffe7a8"] },
+      "teal": { "role": "secondary", "displayName": "Live Teal", "canonical": "oklch(66.3% 0.097 189.8)", "tonalRamp": ["#001514", "#003633", "#005753", "#007a75", "#319f99", "#5dc5be", "#86ece5", "#9dfffd"] },
+      "teal-dim": { "role": "secondary", "displayName": "Teal Dim", "canonical": "oklch(44.6% 0.061 189.1)", "tonalRamp": ["#001210", "#00322f", "#14524e", "#3b7470", "#5f9894", "#83beb9", "#a9e5e0", "#c0fcf7"] },
+      "error": { "role": "neutral", "displayName": "Error Red (Tailwind red-400, borrowed)", "canonical": "oklch(71.1% 0.166 22.2)", "tonalRamp": ["#380000", "#630000", "#8c0019", "#b5333a", "#df5a5c", "#ff8180", "#ffa8a5", "#ffbfbb"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero H1 only, exactly one instance per page." },
+      "headline": { "displayName": "Headline", "purpose": "Section H2s (About, Projects, Contact)." },
+      "title": { "displayName": "Title", "purpose": "Project card H3s and the hero 'currently building' project name." },
+      "body": { "displayName": "Body", "purpose": "Narrative paragraphs; a denser text-sm variant carries project card descriptions." },
+      "label": { "displayName": "Label / Eyebrow", "purpose": "The `.eyebrow` utility: section `// label` headers and small mono tags." }
+    },
+    "shadows": [
+      { "name": "hero-panel-lift", "value": "0 20px 60px -30px rgba(0,0,0,0.9)", "purpose": "Used exactly once, on the hero status panel. Not a reusable elevation level." }
+    ],
+    "motion": [
+      { "name": "pulse-dot", "value": "pulse-dot 2s ease-in-out infinite (opacity 1→0.35→1, scale 1→0.85→1)", "purpose": "Marks anything 'live': status dots, badges, feed indicators." },
+      { "name": "fade-up", "value": "fade-up 0.6s ease-out both (translateY 12px→0, opacity 0→1)", "purpose": "Staggered entrance for hero content blocks." },
+      { "name": "draw-x", "value": "draw-x 0.7s ease-out both (scaleX 0→1)", "purpose": "Underline draw-in beneath the hero's emphasized word." },
+      { "name": "feed", "value": "feed 1.2s ease-in-out infinite (scaleY 0.3→1→0.3), staggered per bar", "purpose": "Ambient activity bars in the hero 'currently building' readout." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main call-to-action: hero 'view work', form submit, project card 'visit'.",
+      "html": "<button class=\"ds-btn-primary\">view work →</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #E8A13A; color: #0E1116; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; font-weight: 500; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; transition: background-color 0.2s ease; } .ds-btn-primary:hover { background: rgba(232, 161, 58, 0.9); } .ds-btn-primary:focus-visible { outline: 2px solid #3AA6A0; outline-offset: 2px; } .ds-btn-primary:disabled { cursor: not-allowed; opacity: 0.6; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Lower-emphasis action: download CV, project 'source' link.",
+      "html": "<button class=\"ds-btn-secondary\">download cv</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: #1B222B; color: #E6EAEF; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; font-weight: 400; padding: 12px 24px; border: 1px solid #26303B; border-radius: 6px; cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease; } .ds-btn-secondary:hover { border-color: #3AA6A0; color: #3AA6A0; } .ds-btn-secondary:focus-visible { outline: 2px solid #3AA6A0; outline-offset: 2px; }"
+    },
+    {
+      "name": "Skill Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Read-only tag for skills/tech in the About spec sheet and project cards.",
+      "html": "<span class=\"ds-chip\">TypeScript</span>",
+      "css": ".ds-chip { display: inline-block; background: rgba(14, 17, 22, 0.5); color: #78848F; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; padding: 2px 8px; border: 1px solid #26303B; border-radius: 4px; transition: border-color 0.2s ease, color 0.2s ease; } .ds-chip.ds-chip-interactive:hover { border-color: #E8A13A; color: #E8A13A; }"
+    },
+    {
+      "name": "Panel Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Generic raised container: project cards, contact form, spec sheet, credential blocks.",
+      "html": "<div class=\"ds-card\"><p class=\"ds-card-title\">Card title</p><p class=\"ds-card-body\">Supporting copy sits here in the muted body color.</p></div>",
+      "css": ".ds-card { background: #151A21; border: 1px solid #26303B; border-radius: 12px; padding: 24px; } .ds-card-title { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.025em; color: #E6EAEF; margin: 0 0 8px; } .ds-card-body { font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.625; color: #8A97A6; margin: 0; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Contact form field (email, subject, message).",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"you@company.com\" />",
+      "css": ".ds-input { width: 100%; background: rgba(14, 17, 22, 0.6); border: 1px solid #26303B; border-radius: 6px; color: #E6EAEF; font-family: 'Inter', system-ui, sans-serif; font-size: 14px; padding: 10px 14px; transition: border-color 0.2s ease; } .ds-input::placeholder { color: #78848F; } .ds-input:focus { outline: none; border-color: #3AA6A0; }"
+    },
+    {
+      "name": "Eyebrow Label",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "The recurring `// section` header device.",
+      "html": "<p class=\"ds-eyebrow\"><span class=\"ds-eyebrow-mark\">//</span> about</p>",
+      "css": ".ds-eyebrow { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: #78848F; margin: 0; } .ds-eyebrow-mark { color: #3AA6A0; }"
+    },
+    {
+      "name": "Live Badge",
+      "kind": "custom",
+      "refersTo": "chip",
+      "description": "The 'available' / 'live' / 'online' pill with a pulsing status dot.",
+      "html": "<span class=\"ds-live-badge\"><span class=\"ds-dot\"></span>available</span>",
+      "css": ".ds-live-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(58, 166, 160, 0.1); border: 1px solid #245F5B; color: #3AA6A0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; padding: 4px 12px; border-radius: 9999px; } .ds-live-badge .ds-dot { width: 6px; height: 6px; border-radius: 9999px; background: #3AA6A0; animation: ds-pulse-dot 2s ease-in-out infinite; } @keyframes ds-pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.85); } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Live Systems Console",
+    "overview": "The site reads as a monitoring console for systems that are actually running, not a decorative resume. Its central device is the hero's status panel: a bordered instrument reading online, live status rows, and a currently building readout with animated feed bars, all rendered in monospace. That same console vocabulary repeats everywhere else at lower volume: section headers are prefixed like code comments (// about, // selected work, // contact), a faint engineering grid sits behind the whole page, and a teal pulse dot marks anything live (available-for-work badges, deployed project cards, the footer). There is deliberately no light mode; color-scheme: dark is a structural commitment, not a default left unset.\n\nThe palette runs almost entirely on three near-black neutrals (ink / panel / panel-2) separated by hairline borders rather than shadows, with exactly two signal colors doing all the semantic work: amber for active, building, call to action and teal for healthy, live, links. Nothing else competes with them, there is no tertiary accent and no decorative gradient beyond one very low-opacity radial glow behind the hero.\n\nTypography carries three distinct jobs rather than a single hierarchy: Space Grotesk (display) is reserved for headings and nothing else, Inter (body) carries narrative prose, and JetBrains Mono is the console's own voice, used for eyebrows, buttons, nav, badges, form labels, and every readout value. That third font is doing as much identity work as the color system; a page with the headings and colors right but body copy set in the mono font, or CTAs set in Inter, would immediately read as off-model.",
+    "keyCharacteristics": [
+      "Near-black, single-hue neutral stack (ink/panel/panel-2) with hairline borders, not shadows, as the primary depth device.",
+      "Exactly two signal colors (amber = active/CTA, teal = live/healthy), each with a dim variant for low-emphasis contexts (pills, badges).",
+      "Three-font system with strict role separation: Space Grotesk for headings only, Inter for narrative body copy, JetBrains Mono for every piece of interface chrome (labels, buttons, nav, badges, status text).",
+      "Monospace 'code comment' motif (//) used as the recurring section-eyebrow device.",
+      "Flat by default; the one hero status panel is the system's single deliberate, non-repeated lift."
+    ],
+    "rules": [
+      { "name": "The Two-Signal Rule", "body": "Only amber and teal are allowed to carry meaning. Amber means act now or this is actively being built. Teal means this is live and healthy. A third accent color anywhere in the system breaks the console's legibility.", "section": "colors" },
+      { "name": "The Border-Not-Shadow Rule", "body": "Depth between ink, panel, and panel-2 is expressed through a one-step brightness increase plus a line hairline border, never a shadow.", "section": "colors" },
+      { "name": "The One Display Rule", "body": "Space Grotesk display-weight type appears exactly once per page, in the hero H1. Section headlines and card titles use the same family but never the largest size; nothing should out-shout the hero's opening line.", "section": "typography" },
+      { "name": "The Flat-By-Default, One-Exception Rule", "body": "Nothing else on the page may take a shadow. If a future component needs to feel elevated, reach for a brighter panel tone and a line border first; the hero shadow is spent on the hero.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep JetBrains Mono for every piece of interface chrome (nav, buttons, labels, badges, status text); it's as much the identity as the color palette.",
+      "Do use the // eyebrow device for any new section header, prefixed in teal.",
+      "Do use amber for exactly one focal action or state per screen; if two things both feel like they need amber, one of them is wrong.",
+      "Do build new elevated surfaces with a brighter neutral tone + line border before reaching for a shadow.",
+      "Do keep border radius scaled to role: 4px for tags, 6px for controls, 8-12px for containers, full for pills/dots."
+    ],
+    "donts": [
+      "Don't introduce a third signal color; amber and teal already cover the system's entire semantic range.",
+      "Don't add a second shadow anywhere; the hero status panel's shadow is spent, it does not establish a reusable elevation level.",
+      "Don't set body prose in JetBrains Mono, or interface chrome (buttons, nav, labels) in Inter; the role split between the two is deliberate and load-bearing.",
+      "Don't introduce a light mode or make color-scheme conditional; darkness is a structural commitment (:root { color-scheme: dark }), not a default left unset.",
+      "Don't use error (red-400) for anything besides form validation/error messaging."
+    ]
+  }
+}
