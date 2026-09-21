@@ -26,7 +26,7 @@ There is no test suite configured in this repo.
 Single-page personal portfolio built with Next.js 13 (App Router) + Tailwind CSS + Framer Motion. Deployed at https://dhiabejaoui.com/ (the old https://dhia-portfolio.vercel.app/ domain redirects to it).
 
 - `src/app/page.js` composes the whole site as one page: `Navbar`, then `HeroSection`, `AboutSection`, `ProjectsSection`, `EmailSection` inside a container, then `Footer`. There is no routing beyond this single page.
-- `src/app/layout.js` sets global metadata (title template/description/keywords for SEO) and loads three Google fonts as CSS variables (`Inter` → `--font-sans`, `Space_Grotesk` → `--font-display`, `JetBrains_Mono` → `--font-mono`).
+- `src/app/layout.js` sets global metadata (title template/description/keywords for SEO) and loads three Google fonts as CSS variables (`Inter` → `--font-sans`, `Space_Grotesk` → `--font-display`, `JetBrains_Mono` → `--font-mono`). Site identity (`SITE_URL`, `SITE_NAME`, `SITE_DESCRIPTION`, `SOCIAL_LINKS`) lives in `src/lib/siteConfig.js` and is shared by `layout.js`, `robots.js`, and `sitemap.js`; edit it there rather than inline.
 - `src/app/components/` holds all UI components, each a self-contained section or widget (no shared component library elsewhere).
 - Content is hardcoded as JS data literals inside components rather than pulled from a CMS or JSON files. To add/edit a project, skill, or credential, edit these arrays directly:
   - `ProjectsSection.jsx`: `projectsData` array (`title`, `kind`, `description`, `image`, `previewUrl`, optional `gitUrl`, `skills`) rendered as a vertical list of `ProjectCard`s. This is a plain list, not a filterable/tagged grid.
