@@ -1,9 +1,10 @@
+/* impeccable-disable codex-grid-background -- blueprint/graph-paper canvas is this direction's own material (the system every diagram is drawn on), not generated-UI filler; the named exception in this rule's own description */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
@@ -11,44 +12,27 @@ html {
 }
 
 body {
-  background-color: #0e1116;
-  color: #e6eaef;
-  /* Faint engineering grid, reads as a console backdrop, kept very low contrast */
-  background-image: linear-gradient(#1e2732 1px, transparent 1px),
-    linear-gradient(90deg, #1e2732 1px, transparent 1px);
-  background-size: 64px 64px;
+  background-color: #f6f7f9;
+  color: #14181d;
+  /* Graph-paper grid: the canvas every diagram in the system is drawn on */
+  background-image: linear-gradient(#e6e9ed 1px, transparent 1px),
+    linear-gradient(90deg, #e6e9ed 1px, transparent 1px);
+  background-size: 32px 32px;
   background-position: -1px -1px;
 }
 
-/* Monospace utility label: the recurring structural device of the page */
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #8a97a6;
-}
-
-/* Subtle top-glow behind hero without a hard gradient blob */
-.hero-glow {
-  background: radial-gradient(
-    60% 55% at 20% 0%,
-    rgba(232, 161, 58, 0.08),
-    transparent 70%
-  );
-}
-
 ::selection {
-  background: rgba(58, 166, 160, 0.3);
-  color: #ffffff;
+  background: rgba(53, 86, 217, 0.18);
+  color: #14181d;
 }
 
 /* Focus visibility, quality floor */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid #3aa6a0;
+textarea:focus-visible,
+.diagram-node:focus-visible {
+  outline: 2px solid #3556d9;
   outline-offset: 2px;
 }
 

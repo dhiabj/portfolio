@@ -4,9 +4,9 @@ const NavLink = ({ href, title }) => {
   return (
     <Link
       href={href}
-      className="group flex items-center gap-2 font-mono text-sm text-muted transition-colors hover:text-text">
-      <span className="text-teal opacity-60 group-hover:opacity-100">{'//'}</span>
+      className="group relative font-mono text-sm text-muted transition-colors hover:text-ink">
       {title}
+      <span className="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-200 group-hover:w-full" />
     </Link>
   );
 };
