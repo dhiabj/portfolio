@@ -26,7 +26,7 @@ const nodeVariants = {
  * A small labeled data-flow diagram: one project's real pipeline, drawn in the
  * same node/edge grammar as the hero SystemDiagram.
  * steps: string[]
- * loop: { from: number, to: number, label: string } | null — a dashed retry/alert edge
+ * loop: { from: number, to: number, label: string } | null: a dashed retry/alert edge
  */
 const MiniFlow = ({ steps, loop = null }) => {
   const width = steps.length * NODE_W + (steps.length - 1) * GAP + 8;
