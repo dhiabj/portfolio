@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useId } from 'react';
 import { motion } from 'framer-motion';
 
 const NODE_W = 148;
@@ -36,7 +36,10 @@ const MiniFlow = ({ steps, loop = null }) => {
 
   const nodeX = (i) => i * (NODE_W + GAP) + 4;
 
-  const loopMaskId = `loop-mask-${steps.join('-').replace(/[^a-zA-Z0-9-]/g, '')}`;
+  const uid = useId().replace(/:/g, '');
+  const loopMaskId = `${uid}-loop-mask`;
+  const arrowId = `${uid}-arrow`;
+  const arrowAccentId = `${uid}-arrow-accent`;
   const loopPath = loop
     ? `M${nodeX(loop.from) + NODE_W / 2},${rowY + NODE_H} C ${nodeX(loop.from) + NODE_W / 2},${rowY + NODE_H + 40} ${nodeX(loop.to) + NODE_W / 2},${rowY + NODE_H + 40} ${nodeX(loop.to) + NODE_W / 2},${rowY + NODE_H}`
     : '';
@@ -44,15 +47,18 @@ const MiniFlow = ({ steps, loop = null }) => {
   return (
     <svg
       viewBox={`0 0 ${width} ${height}`}
-      className="h-auto w-full"
+      width={width}
+      height={height}
+      style={{ minWidth: width }}
+      className="h-auto"
       role="img"
       aria-label={`Pipeline: ${steps.join(' to ')}${loop ? `, with ${loop.label} back to ${steps[loop.to]}` : ''}`}>
       <defs>
-        <marker id="mini-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-          <path d="M0,0 L8,4 L0,8 Z" fill="#14181D" />
+        <marker id={arrowId} viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+          <path d="M0,0 L8,4 L0,8 Z" className="fill-ink" />
         </marker>
-        <marker id="mini-arrow-accent" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-          <path d="M0,0 L8,4 L0,8 Z" fill="#3556D9" />
+        <marker id={arrowAccentId} viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+          <path d="M0,0 L8,4 L0,8 Z" className="fill-accent" />
         </marker>
       </defs>
 
@@ -64,9 +70,9 @@ const MiniFlow = ({ steps, loop = null }) => {
           <motion.path
             key={`edge-${i}`}
             d={`M${x1},${y} L${x2},${y}`}
-            stroke="#14181D"
+            className="stroke-ink"
             strokeWidth={1.5}
-            markerEnd="url(#mini-arrow)"
+            markerEnd={`url(#${arrowId})`}
             custom={i}
             initial="hidden"
             whileInView="show"
@@ -88,7 +94,7 @@ const MiniFlow = ({ steps, loop = null }) => {
               <motion.path
                 d={loopPath}
                 fill="none"
-                stroke="#FFFFFF"
+                stroke="white"
                 strokeWidth={10}
                 custom={steps.length}
                 variants={edgeVariants}
@@ -97,10 +103,10 @@ const MiniFlow = ({ steps, loop = null }) => {
             <path
               d={loopPath}
               fill="none"
-              stroke="#3556D9"
+              className="stroke-accent"
               strokeWidth={1.5}
               strokeDasharray="4 4"
-              markerEnd="url(#mini-arrow-accent)"
+              markerEnd={`url(#${arrowAccentId})`}
               mask={`url(#${loopMaskId})`}
             />
           </motion.g>
@@ -108,8 +114,8 @@ const MiniFlow = ({ steps, loop = null }) => {
             x={(nodeX(loop.from) + nodeX(loop.to)) / 2 + NODE_W / 2}
             y={rowY + NODE_H + 56}
             textAnchor="middle"
-            className="font-mono"
-            style={{ fontSize: 10, fill: '#3556D9' }}>
+            className="fill-accent font-mono"
+            style={{ fontSize: 10 }}>
             {loop.label}
           </text>
         </>
@@ -129,16 +135,15 @@ const MiniFlow = ({ steps, loop = null }) => {
             width={NODE_W}
             height={NODE_H}
             rx={4}
-            fill="#FFFFFF"
-            stroke="#14181D"
+            className="fill-paper stroke-ink"
             strokeWidth={1.25}
           />
           <text
             x={nodeX(i) + NODE_W / 2}
             y={rowY + NODE_H / 2 + 4}
             textAnchor="middle"
-            className="font-mono"
-            style={{ fontSize: 11, fill: '#14181D' }}>
+            className="fill-ink font-mono"
+            style={{ fontSize: 11 }}>
             {label}
           </text>
         </motion.g>

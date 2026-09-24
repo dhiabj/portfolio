@@ -48,7 +48,7 @@ const EmailSection = () => {
   };
 
   const inputClasses =
-    'w-full rounded border border-line bg-canvas px-3.5 py-2.5 text-sm text-ink placeholder-faint transition-colors focus:border-accent focus:outline-none';
+    'w-full rounded border border-line bg-canvas px-3.5 py-2.5 text-sm text-ink placeholder-faint transition-colors focus:border-accent focus-visible:ring-2 focus-visible:ring-accent/40';
   const errorClasses = 'mt-1.5 text-xs text-error';
 
   return (
@@ -92,7 +92,9 @@ const EmailSection = () => {
           <NodeBadge id="N-MSG" live={submitState === 'success'} />
 
           {submitState === 'success' ? (
-            <div className="flex h-full flex-col items-center justify-center gap-3 py-12 text-center">
+            <div
+              role="status"
+              className="flex h-full flex-col items-center justify-center gap-3 py-12 text-center">
               <div className="flex items-center gap-2 border border-accent bg-accent-dim px-4 py-2 font-mono text-xs text-accent">
                 <CheckIcon className="h-3.5 w-3.5" />
                 message sent
@@ -120,9 +122,17 @@ const EmailSection = () => {
                   id="email"
                   className={inputClasses}
                   placeholder="you@company.com"
+                  autoComplete="email"
+                  spellCheck={false}
+                  aria-invalid={Boolean(errors.email)}
+                  aria-describedby={errors.email ? 'email-error' : undefined}
                   {...register('email')}
                 />
-                {errors.email && <p className={errorClasses}>{errors.email.message}</p>}
+                {errors.email && (
+                  <p id="email-error" role="alert" className={errorClasses}>
+                    {errors.email.message}
+                  </p>
+                )}
               </div>
               <div>
                 <label
@@ -135,9 +145,15 @@ const EmailSection = () => {
                   id="subject"
                   className={inputClasses}
                   placeholder="What's this about?"
+                  aria-invalid={Boolean(errors.subject)}
+                  aria-describedby={errors.subject ? 'subject-error' : undefined}
                   {...register('subject')}
                 />
-                {errors.subject && <p className={errorClasses}>{errors.subject.message}</p>}
+                {errors.subject && (
+                  <p id="subject-error" role="alert" className={errorClasses}>
+                    {errors.subject.message}
+                  </p>
+                )}
               </div>
               <div>
                 <label
@@ -150,12 +166,18 @@ const EmailSection = () => {
                   rows={4}
                   className={`${inputClasses} resize-none`}
                   placeholder="Tell me about the project…"
+                  aria-invalid={Boolean(errors.message)}
+                  aria-describedby={errors.message ? 'message-error' : undefined}
                   {...register('message')}
                 />
-                {errors.message && <p className={errorClasses}>{errors.message.message}</p>}
+                {errors.message && (
+                  <p id="message-error" role="alert" className={errorClasses}>
+                    {errors.message.message}
+                  </p>
+                )}
               </div>
               {submitState === 'error' && (
-                <p className="text-xs text-error">
+                <p role="alert" className="text-xs text-error">
                   Something went wrong, please email me directly at{' '}
                   <a href={`mailto:${FALLBACK_EMAIL}`} className="text-accent underline">
                     {FALLBACK_EMAIL}

@@ -123,13 +123,19 @@ function DiagramSvg({ viewBox, nodes, edges, className, idPrefix }) {
       viewBox={viewBox}
       className={className}
       role="group"
-      aria-label="Diagram of a typical pipeline Dhia builds: schedule, ingest, API, interface, with an alert-and-retry loop on failure. Select a node to highlight its connections.">
+      onClick={(e) => {
+        if (e.target === e.currentTarget) setPinned(null);
+      }}
+      onKeyDown={(e) => {
+        if (e.key === 'Escape') setPinned(null);
+      }}
+      aria-label="Diagram of a typical pipeline Dhia builds: schedule, ingest, API, interface, with an alert-and-retry loop on failure. Select a node to highlight its connections. Press Escape to clear.">
       <defs>
-        <marker id="arrow-solid" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M0,0 L8,4 L0,8 Z" fill="#14181D" />
+        <marker id={`${idPrefix}-arrow-solid`} viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L8,4 L0,8 Z" className="fill-ink" />
         </marker>
-        <marker id="arrow-dashed" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M0,0 L8,4 L0,8 Z" fill="#3556D9" />
+        <marker id={`${idPrefix}-arrow-dashed`} viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L8,4 L0,8 Z" className="fill-accent" />
         </marker>
       </defs>
 
@@ -148,7 +154,7 @@ function DiagramSvg({ viewBox, nodes, edges, className, idPrefix }) {
                 <motion.path
                   d={edge.d}
                   fill="none"
-                  stroke="#FFFFFF"
+                  stroke="white"
                   strokeWidth={10}
                   custom={i}
                   variants={edgeVariants}
@@ -157,10 +163,10 @@ function DiagramSvg({ viewBox, nodes, edges, className, idPrefix }) {
               <path
                 d={edge.d}
                 fill="none"
-                stroke="#3556D9"
+                className="stroke-accent"
                 strokeWidth={1.5}
                 strokeDasharray="5 4"
-                markerEnd="url(#arrow-dashed)"
+                markerEnd={`url(#${idPrefix}-arrow-dashed)`}
                 mask={`url(#${maskId})`}
                 style={{ opacity: isEdgeActive(edge) ? 1 : 0.2 }}
               />
@@ -168,20 +174,22 @@ function DiagramSvg({ viewBox, nodes, edges, className, idPrefix }) {
           );
         }
         return (
-          <motion.path
+          <g
             key={`${edge.from}-${edge.to}`}
-            d={edge.d}
-            fill="none"
-            stroke="#14181D"
-            strokeWidth={1.75}
-            markerEnd="url(#arrow-solid)"
-            custom={i}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-40px' }}
-            variants={edgeVariants}
-            style={{ opacity: isEdgeActive(edge) ? 1 : 0.2 }}
-          />
+            style={{ opacity: isEdgeActive(edge) ? 1 : 0.2 }}>
+            <motion.path
+              d={edge.d}
+              fill="none"
+              className="stroke-ink"
+              strokeWidth={1.75}
+              markerEnd={`url(#${idPrefix}-arrow-solid)`}
+              custom={i}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '-40px' }}
+              variants={edgeVariants}
+            />
+          </g>
         );
       })}
 
@@ -198,17 +206,14 @@ function DiagramSvg({ viewBox, nodes, edges, className, idPrefix }) {
               y={my - 18}
               width={labelWidth}
               height={14}
-              fill="#F6F7F9"
+              className="fill-paper"
             />
             <text
               x={mx}
               y={my - 8}
               textAnchor="middle"
-              className="font-mono"
-              style={{
-                fontSize: 10,
-                fill: edge.style === 'dashed' ? '#3556D9' : '#5B6572',
-              }}>
+              className={`font-mono ${edge.style === 'dashed' ? 'fill-accent' : 'fill-muted'}`}
+              style={{ fontSize: 10 }}>
               {edge.label}
             </text>
           </g>
@@ -216,59 +221,58 @@ function DiagramSvg({ viewBox, nodes, edges, className, idPrefix }) {
       })}
 
       {nodes.map((node, i) => (
-        <motion.g
-          key={node.id}
-          custom={i}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-40px' }}
-          variants={nodeVariants}
-          className="diagram-node"
-          tabIndex={0}
-          role="button"
-          aria-label={`${node.label}, ${node.note}. Select to highlight its connections.`}
-          onMouseEnter={() => setHovered(node.id)}
-          onMouseLeave={() => setHovered(null)}
-          onFocus={() => setHovered(node.id)}
-          onBlur={() => setHovered(null)}
-          onClick={() => togglePin(node.id)}
-          onKeyDown={(e) => handleKeyDown(e, node.id)}
-          style={{ cursor: 'pointer', opacity: isNodeActive(node.id) ? 1 : 0.2 }}>
-          <rect
-            x={node.x}
-            y={node.y}
-            width={node.w}
-            height={node.h}
-            rx={4}
-            fill={node.live ? '#DCE3FA' : '#FFFFFF'}
-            stroke={node.live ? '#3556D9' : '#14181D'}
-            strokeWidth={node.live ? 1.75 : 1.5}
-          />
-          <circle
-            cx={node.x + node.w - 14}
-            cy={node.y + 14}
-            r={4}
-            fill={node.live ? '#3556D9' : 'none'}
-            stroke="#3556D9"
-            strokeWidth={1.5}
-            className={node.live ? 'animate-pulse-dot' : undefined}
-            style={node.live ? { transformBox: 'fill-box', transformOrigin: 'center' } : undefined}
-          />
-          <text
-            x={node.x + 14}
-            y={node.y + node.h / 2 - 4}
-            className="font-mono"
-            style={{ fontSize: 12, fontWeight: 500, fill: '#14181D', letterSpacing: '0.04em' }}>
-            {node.label}
-          </text>
-          <text
-            x={node.x + 14}
-            y={node.y + node.h / 2 + 14}
-            className="font-mono"
-            style={{ fontSize: 10, fill: '#5B6572' }}>
-            {node.note}
-          </text>
-        </motion.g>
+        <g key={node.id} style={{ opacity: isNodeActive(node.id) ? 1 : 0.2 }}>
+          <motion.g
+            custom={i}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-40px' }}
+            variants={nodeVariants}
+            className="diagram-node"
+            tabIndex={0}
+            role="button"
+            aria-pressed={pinned === node.id}
+            aria-label={`${node.label}, ${node.note}. Select to highlight its connections.`}
+            onMouseEnter={() => setHovered(node.id)}
+            onMouseLeave={() => setHovered(null)}
+            onFocus={() => setHovered(node.id)}
+            onBlur={() => setHovered(null)}
+            onClick={() => togglePin(node.id)}
+            onKeyDown={(e) => handleKeyDown(e, node.id)}
+            style={{ cursor: 'pointer' }}>
+            <rect
+              x={node.x}
+              y={node.y}
+              width={node.w}
+              height={node.h}
+              rx={4}
+              className={node.live ? 'fill-accent-dim stroke-accent' : 'fill-paper stroke-ink'}
+              strokeWidth={node.live ? 1.75 : 1.5}
+            />
+            <circle
+              cx={node.x + node.w - 14}
+              cy={node.y + 14}
+              r={4}
+              className={`stroke-accent ${node.live ? 'fill-accent animate-pulse-dot' : 'fill-none'}`}
+              strokeWidth={1.5}
+              style={node.live ? { transformBox: 'fill-box', transformOrigin: 'center' } : undefined}
+            />
+            <text
+              x={node.x + 14}
+              y={node.y + node.h / 2 - 4}
+              className="fill-ink font-mono"
+              style={{ fontSize: 12, fontWeight: 500, letterSpacing: '0.04em' }}>
+              {node.label}
+            </text>
+            <text
+              x={node.x + 14}
+              y={node.y + node.h / 2 + 14}
+              className="fill-muted font-mono"
+              style={{ fontSize: 10 }}>
+              {node.note}
+            </text>
+          </motion.g>
+        </g>
       ))}
     </svg>
   );
@@ -282,14 +286,14 @@ const SystemDiagram = () => {
         nodes={desktopNodes}
         edges={desktopEdges}
         idPrefix="desktop"
-        className="hidden w-full md:block"
+        className="hidden w-full lg:block"
       />
       <DiagramSvg
         viewBox="0 0 380 520"
         nodes={mobileNodes}
         edges={mobileEdges}
         idPrefix="mobile"
-        className="block w-full md:hidden"
+        className="mx-auto block w-full max-w-[380px] lg:hidden"
       />
     </div>
   );

@@ -1,5 +1,6 @@
 import './globals.css';
 import { DM_Sans, IBM_Plex_Mono } from 'next/font/google';
+import MotionProvider from './components/MotionProvider';
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/siteConfig';
 
 const dmSans = DM_Sans({
@@ -15,6 +16,10 @@ const ibmPlexMono = IBM_Plex_Mono({
   variable: '--font-mono',
   display: 'swap',
 });
+
+export const viewport = {
+  themeColor: '#F6F7F9',
+};
 
 export const metadata = {
   title: {
@@ -83,39 +88,12 @@ export const metadata = {
   },
 };
 
-// Direction contract, recorded at concept lock, seed key 7638c560.
-// Authored directly in the root layout so it survives the production
-// build as the literal first child of <body>. See CLAUDE.md / DESIGN.md.
-const DIRECTION_CONTRACT = `<!--
-THESIS: the portfolio is a literal systems diagram, not a page describing
-systems; visitors read the mechanism directly instead of being told about it.
-OWN-WORLD: paper-white graph-paper canvas, graphite ink linework, one indigo
-accent for live status and action; DM Sans for reading, IBM Plex Mono for
-every measured value; node-boxes with corner ID badges are the one repeating
-container.
-STORY: a recruiter or client sees the actual pipeline Dhia ships (schedule,
-ingest, API, interface, with the retry/alert loop that keeps it running),
-then each project's own real diagram, then reaches him with confidence.
-FIRST VIEWPORT: headline, one-line bio and CTAs top-left, then the About
-node (N01); the full-width animated pipeline diagram (fig. 1, legend beneath,
-nodes labeled, edges drawing in on scroll) follows directly below it.
-FORM: Systems Diagram (Data-Flow), candidate 1 of 7 grounded directions,
-seed key 7638c560.
-FINISH: unreviewed and undocumented is unfinished; this build ends with the
-finish review, the verdict, DESIGN.md, and every shipping raster carrying
-its provenance
--->`;
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
         className={`${dmSans.variable} ${ibmPlexMono.variable} font-sans`}>
-        <div
-          style={{ display: 'none' }}
-          dangerouslySetInnerHTML={{ __html: DIRECTION_CONTRACT }}
-        />
-        {children}
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

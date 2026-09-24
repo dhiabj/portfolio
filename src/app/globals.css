@@ -12,18 +12,18 @@ html {
 }
 
 body {
-  background-color: #f6f7f9;
-  color: #14181d;
+  background-color: theme("colors.canvas");
+  color: theme("colors.ink");
   /* Graph-paper grid: the canvas every diagram in the system is drawn on */
-  background-image: linear-gradient(#e6e9ed 1px, transparent 1px),
-    linear-gradient(90deg, #e6e9ed 1px, transparent 1px);
+  background-image: linear-gradient(theme("colors.line-soft") 1px, transparent 1px),
+    linear-gradient(90deg, theme("colors.line-soft") 1px, transparent 1px);
   background-size: 32px 32px;
   background-position: -1px -1px;
 }
 
 ::selection {
-  background: rgba(53, 86, 217, 0.18);
-  color: #14181d;
+  background: theme("colors.accent / 18%");
+  color: theme("colors.ink");
 }
 
 /* Focus visibility, quality floor */
@@ -32,7 +32,7 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 .diagram-node:focus-visible {
-  outline: 2px solid #3556d9;
+  outline: 2px solid theme("colors.accent");
   outline-offset: 2px;
 }
 

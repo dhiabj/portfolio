@@ -63,7 +63,7 @@ const AboutSection = () => {
   return (
     <section id="about" className="scroll-mt-24 py-20 lg:py-28">
       <div className="relative rounded-lg border border-line bg-paper p-6 lg:p-10">
-        <NodeBadge id="N01" live />
+        <NodeBadge id="N01" />
 
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
           {/* Narrative */}

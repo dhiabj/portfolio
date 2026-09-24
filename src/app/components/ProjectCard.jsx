@@ -14,17 +14,19 @@ const ProjectCard = ({
   gitUrl,
   skills,
   previewUrl,
-  flow,
+  flow = { steps: [] },
 }) => {
   return (
     <article className="relative rounded-lg border border-line bg-paper">
       <NodeBadge id={`P${String(index + 1).padStart(2, '0')}`} live />
 
       {/* Diagram strip: this project's own pipeline */}
-      <div className="overflow-x-auto border-b border-line bg-canvas-2 px-5 py-5">
-        <div className="min-w-max">
-          <MiniFlow steps={flow.steps} loop={flow.loop} />
-        </div>
+      <div
+        tabIndex={0}
+        role="region"
+        aria-label={`${title} pipeline diagram`}
+        className="overflow-x-auto border-b border-line bg-canvas-2 px-5 py-5">
+        {flow.steps.length > 0 && <MiniFlow steps={flow.steps} loop={flow.loop} />}
       </div>
 
       <div className="md:grid md:grid-cols-[minmax(0,38%)_1fr]">
