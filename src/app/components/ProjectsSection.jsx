@@ -20,6 +20,7 @@ const projectsData = [
       'Zod',
       'Playwright',
     ],
+    flow: { steps: ['static content', 'Next.js build', 'sparkling.co.com'] },
   },
   {
     id: 3,
@@ -39,6 +40,10 @@ const projectsData = [
       'Docker',
       'Playwright',
     ],
+    flow: {
+      steps: ['schedule', 'scrape', 'MongoDB', 'FastAPI', 'sarrafli.net'],
+      loop: { from: 0, to: 1, label: 'retry on failure' },
+    },
   },
   {
     id: 2,
@@ -50,6 +55,7 @@ const projectsData = [
     gitUrl: 'https://github.com/dhiabj/CodeSensei.git',
     previewUrl: 'https://code-sensei-five.vercel.app/',
     skills: ['Vue 3', 'NestJS', 'MongoDB', 'Gemini API', 'Pinia', 'JWT'],
+    flow: { steps: ['code input', 'NestJS API', 'Gemini API', 'live UI'] },
   },
   {
     id: 1,
@@ -61,6 +67,7 @@ const projectsData = [
     gitUrl: 'https://github.com/dhiabj/weather-app.git',
     previewUrl: 'https://weather-app-beryl-seven-94.vercel.app/',
     skills: ['Next.js', 'TypeScript', 'Tailwind CSS', 'OpenWeather API'],
+    flow: { steps: ['location', 'OpenWeather API', 'live UI'] },
   },
 ];
 
@@ -69,21 +76,16 @@ const ProjectsSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   const cardVariants = {
-    initial: { y: 40, opacity: 0 },
+    initial: { y: 32, opacity: 0 },
     animate: { y: 0, opacity: 1 },
   };
 
   return (
     <section id="projects" className="scroll-mt-24 py-20 lg:py-28">
       <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <p className="eyebrow mb-4">
-            <span className="text-teal">{'//'}</span> selected work
-          </p>
-          <h2 className="font-display text-3xl font-bold tracking-tight text-text sm:text-4xl">
-            Systems currently in production.
-          </h2>
-        </div>
+        <h2 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+          Systems currently in production.
+        </h2>
         <p className="font-mono text-xs text-faint">
           {projectsData.length} of {projectsData.length} · all deployed
         </p>
@@ -96,7 +98,7 @@ const ProjectsSection = () => {
             variants={cardVariants}
             initial="initial"
             animate={isInView ? 'animate' : 'initial'}
-            transition={{ duration: 0.4, delay: index * 0.12 }}>
+            transition={{ duration: 0.4, delay: index * 0.1 }}>
             <ProjectCard
               index={index}
               title={project.title}
@@ -106,6 +108,7 @@ const ProjectsSection = () => {
               gitUrl={project.gitUrl}
               skills={project.skills}
               previewUrl={project.previewUrl}
+              flow={project.flow}
             />
           </motion.li>
         ))}

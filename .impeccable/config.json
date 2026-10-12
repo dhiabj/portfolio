@@ -1,0 +1,38 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-color",
+        "value": "#f6f7f9",
+        "createdAt": "2026-09-21T16:38:15.422Z",
+        "reason": "user approved full visual-world replacement; new canvas token, DESIGN.md rewritten at finish"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(53, 86, 217, 0.18)",
+        "createdAt": "2026-09-21T16:38:15.499Z",
+        "reason": "user approved full visual-world replacement; new accent token (selection state), DESIGN.md rewritten at finish"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#3556d9",
+        "createdAt": "2026-09-21T16:38:15.578Z",
+        "reason": "user approved full visual-world replacement; new accent token, DESIGN.md rewritten at finish"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "11px",
+        "createdAt": "2026-09-21T16:40:03.527Z",
+        "reason": "user approved full visual-world replacement; new micro-label type step for node-ID badges, DESIGN.md rewritten at finish"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "10px",
+        "createdAt": "2026-09-21T16:41:55.746Z",
+        "reason": "user approved full visual-world replacement; existing micro-badge type step carried over, DESIGN.md rewritten at finish"
+      }
+    ]
+  }
+}
