@@ -1,7 +1,7 @@
 ---
 name: frontend-code-reviewer
 description: Personal frontend code reviewer. Use after making frontend changes (React components, styles, markup, UI) to audit the diff against the `vercel-react-best-practices` and `web-design-guidelines` skills, plus `vercel-composition-patterns` when the change reshapes a component's API. Invoke proactively when a frontend change is complete, or on request ("review my UI changes", "check this component"). Reviews only, never edits.
-tools: Read, Grep, Glob, Bash, WebFetch
+tools: Read, Grep, Glob, Bash, WebFetch, Skill
 model: sonnet
 ---
 

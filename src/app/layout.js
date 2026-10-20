@@ -1,26 +1,25 @@
 import './globals.css';
-import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+import { DM_Sans, IBM_Plex_Mono } from 'next/font/google';
+import MotionProvider from './components/MotionProvider';
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/siteConfig';
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ['latin'],
+  weight: ['400', '500', '700'],
   variable: '--font-sans',
   display: 'swap',
 });
 
-const spaceGrotesk = Space_Grotesk({
+const ibmPlexMono = IBM_Plex_Mono({
   subsets: ['latin'],
-  weight: ['500', '600', '700'],
-  variable: '--font-display',
-  display: 'swap',
-});
-
-const jetBrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
+  weight: ['400', '500'],
   variable: '--font-mono',
   display: 'swap',
 });
+
+export const viewport = {
+  themeColor: '#F6F7F9',
+};
 
 export const metadata = {
   title: {
@@ -93,8 +92,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${jetBrainsMono.variable} font-sans`}>
-        {children}
+        className={`${dmSans.variable} ${ibmPlexMono.variable} font-sans`}>
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

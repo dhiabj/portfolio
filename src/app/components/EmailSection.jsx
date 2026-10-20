@@ -8,6 +8,7 @@ import LinkedinIcon from '../../../public/linkedin-icon.svg';
 import Link from 'next/link';
 import Image from 'next/image';
 import { contactSchema } from '@/lib/contactSchema';
+import NodeBadge from './diagram/NodeBadge';
 
 const FALLBACK_EMAIL =
   process.env.NEXT_PUBLIC_CONTACT_FALLBACK_EMAIL || 'dhia.bejaoui.db@gmail.com';
@@ -47,18 +48,15 @@ const EmailSection = () => {
   };
 
   const inputClasses =
-    'w-full rounded-md border border-line bg-ink/60 px-3.5 py-2.5 text-sm text-text placeholder-faint transition-colors focus:border-teal focus:outline-none';
-  const errorClasses = 'mt-1.5 text-xs text-red-400';
+    'w-full rounded border border-line bg-canvas px-3.5 py-2.5 text-sm text-ink placeholder-faint transition-colors focus:border-accent focus-visible:ring-2 focus-visible:ring-accent/40';
+  const errorClasses = 'mt-1.5 text-xs text-error';
 
   return (
-    <section id="contact" className="scroll-mt-24 border-t border-line py-20 lg:py-28">
+    <section id="contact" className="scroll-mt-24 py-20 lg:py-28">
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
         {/* Left */}
         <div>
-          <p className="eyebrow mb-4">
-            <span className="text-teal">{'//'}</span> contact
-          </p>
-          <h2 className="font-display text-3xl font-bold tracking-tight text-text sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
             Let&apos;s build something that lasts.
           </h2>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-muted">
@@ -66,8 +64,8 @@ const EmailSection = () => {
             building and I&apos;ll reply, the inbox is always open.
           </p>
 
-          <div className="mt-8 flex items-center gap-2 rounded-full border border-teal-dim bg-teal/10 px-4 py-2 font-mono text-xs text-teal w-fit">
-            <span className="h-1.5 w-1.5 rounded-full bg-teal animate-pulse-dot" />
+          <div className="mt-8 flex w-fit items-center gap-2 border border-accent bg-accent-dim px-4 py-2 text-xs text-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-dot" />
             available for work
           </div>
 
@@ -76,37 +74,47 @@ const EmailSection = () => {
               href="https://github.com/dhiabj"
               target="_blank"
               aria-label="GitHub"
-              className="flex h-11 w-11 items-center justify-center rounded-md border border-line bg-panel-2 transition-colors hover:border-teal">
+              className="flex h-11 w-11 items-center justify-center rounded border border-ink transition-colors hover:bg-canvas-2">
               <Image src={GithubIcon} alt="" className="h-5 w-5" />
             </Link>
             <Link
               href="https://www.linkedin.com/in/dhia-bejaoui-147b98200/"
               target="_blank"
               aria-label="LinkedIn"
-              className="flex h-11 w-11 items-center justify-center rounded-md border border-line bg-panel-2 transition-colors hover:border-teal">
+              className="flex h-11 w-11 items-center justify-center rounded border border-ink transition-colors hover:bg-canvas-2">
               <Image src={LinkedinIcon} alt="" className="h-5 w-5" />
             </Link>
           </div>
         </div>
 
-        {/* Right: form */}
-        <div className="rounded-xl border border-line bg-panel p-6 lg:p-8">
+        {/* Right: form, drawn as a node awaiting a new edge */}
+        <div className="relative rounded-lg border border-line bg-paper p-6 lg:p-8">
+          <NodeBadge id="N-MSG" live={submitState === 'success'} />
+
           {submitState === 'success' ? (
-            <div className="flex h-full flex-col items-center justify-center gap-3 py-12 text-center">
-              <div className="flex items-center gap-2 rounded-full border border-teal-dim bg-teal/10 px-4 py-2 font-mono text-xs text-teal">
-                <CheckIcon className="h-3.5 w-3.5 text-teal" />
+            <div
+              role="status"
+              className="flex h-full flex-col items-center justify-center gap-3 py-12 text-center">
+              <div className="flex items-center gap-2 border border-accent bg-accent-dim px-4 py-2 font-mono text-xs text-accent">
+                <CheckIcon className="h-3.5 w-3.5" />
                 message sent
               </div>
               <p className="max-w-xs text-sm text-muted">
                 Thanks for reaching out, I&apos;ll get back to you soon.
               </p>
+              <button
+                type="button"
+                onClick={() => setSubmitState('idle')}
+                className="mt-2 rounded border border-ink bg-transparent px-5 py-2.5 font-mono text-sm text-ink transition-colors hover:bg-canvas-2">
+                send another message
+              </button>
             </div>
           ) : (
             <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)} noValidate>
               <div>
                 <label
                   htmlFor="email"
-                  className="mb-2 block font-mono text-xs uppercase tracking-label text-faint">
+                  className="mb-2 block text-xs uppercase tracking-label text-faint">
                   your email
                 </label>
                 <input
@@ -114,14 +122,22 @@ const EmailSection = () => {
                   id="email"
                   className={inputClasses}
                   placeholder="you@company.com"
+                  autoComplete="email"
+                  spellCheck={false}
+                  aria-invalid={Boolean(errors.email)}
+                  aria-describedby={errors.email ? 'email-error' : undefined}
                   {...register('email')}
                 />
-                {errors.email && <p className={errorClasses}>{errors.email.message}</p>}
+                {errors.email && (
+                  <p id="email-error" role="alert" className={errorClasses}>
+                    {errors.email.message}
+                  </p>
+                )}
               </div>
               <div>
                 <label
                   htmlFor="subject"
-                  className="mb-2 block font-mono text-xs uppercase tracking-label text-faint">
+                  className="mb-2 block text-xs uppercase tracking-label text-faint">
                   subject
                 </label>
                 <input
@@ -129,14 +145,20 @@ const EmailSection = () => {
                   id="subject"
                   className={inputClasses}
                   placeholder="What's this about?"
+                  aria-invalid={Boolean(errors.subject)}
+                  aria-describedby={errors.subject ? 'subject-error' : undefined}
                   {...register('subject')}
                 />
-                {errors.subject && <p className={errorClasses}>{errors.subject.message}</p>}
+                {errors.subject && (
+                  <p id="subject-error" role="alert" className={errorClasses}>
+                    {errors.subject.message}
+                  </p>
+                )}
               </div>
               <div>
                 <label
                   htmlFor="message"
-                  className="mb-2 block font-mono text-xs uppercase tracking-label text-faint">
+                  className="mb-2 block text-xs uppercase tracking-label text-faint">
                   message
                 </label>
                 <textarea
@@ -144,14 +166,20 @@ const EmailSection = () => {
                   rows={4}
                   className={`${inputClasses} resize-none`}
                   placeholder="Tell me about the project…"
+                  aria-invalid={Boolean(errors.message)}
+                  aria-describedby={errors.message ? 'message-error' : undefined}
                   {...register('message')}
                 />
-                {errors.message && <p className={errorClasses}>{errors.message.message}</p>}
+                {errors.message && (
+                  <p id="message-error" role="alert" className={errorClasses}>
+                    {errors.message.message}
+                  </p>
+                )}
               </div>
               {submitState === 'error' && (
-                <p className="text-xs text-red-400">
+                <p role="alert" className="text-xs text-error">
                   Something went wrong, please email me directly at{' '}
-                  <a href={`mailto:${FALLBACK_EMAIL}`} className="text-teal underline">
+                  <a href={`mailto:${FALLBACK_EMAIL}`} className="text-accent underline">
                     {FALLBACK_EMAIL}
                   </a>
                   .
@@ -160,7 +188,7 @@ const EmailSection = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="rounded-md bg-amber px-5 py-3 font-mono text-sm font-medium text-ink transition-colors hover:bg-amber/90 disabled:cursor-not-allowed disabled:opacity-60">
+                className="rounded border border-ink bg-accent px-5 py-3 font-mono text-sm font-medium text-white transition-colors hover:bg-ink disabled:cursor-not-allowed disabled:opacity-60">
                 {isSubmitting ? 'sending…' : 'send message →'}
               </button>
             </form>

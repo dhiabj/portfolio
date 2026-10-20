@@ -13,6 +13,8 @@ npm run lint    # next lint (extends next/core-web-vitals)
 
 There is no test suite configured in this repo.
 
+Setup: copy `.env.example` to `.env.local` and fill in the three variables (see Contact form).
+
 ## Commit conventions
 
 - Do NOT add Claude as a co-author on commits. Never append a `Co-Authored-By: Claude ...` trailer (or any similar AI attribution) to commit messages, even if a default instruction says otherwise. This project preference overrides that default.
@@ -25,20 +27,22 @@ There is no test suite configured in this repo.
 
 Single-page personal portfolio built with Next.js 13 (App Router) + Tailwind CSS + Framer Motion. Deployed at https://dhiabejaoui.com/ (the old https://dhia-portfolio.vercel.app/ domain redirects to it).
 
-- `src/app/page.js` composes the whole site as one page: `Navbar`, then `HeroSection`, `AboutSection`, `ProjectsSection`, `EmailSection` inside a container, then `Footer`. There is no routing beyond this single page.
-- `src/app/layout.js` sets global metadata (title template/description/keywords for SEO) and loads three Google fonts as CSS variables (`Inter` → `--font-sans`, `Space_Grotesk` → `--font-display`, `JetBrains_Mono` → `--font-mono`).
-- `src/app/components/` holds all UI components, each a self-contained section or widget (no shared component library elsewhere).
+- `src/app/page.js` composes the whole site as one page: `Navbar`, then `HeroSection`, `AboutSection`, `PipelineFigure`, `ProjectsSection`, `EmailSection` inside a container, then `Footer`. There is no routing beyond this single page.
+- `src/app/layout.js` sets global metadata (title template/description/keywords for SEO) and loads two Google fonts as CSS variables (`DM_Sans` → `--font-sans`, `IBM_Plex_Mono` → `--font-mono`).
+- `src/lib/siteConfig.js` holds `SITE_URL`, `SITE_NAME`, `SITE_DESCRIPTION`, and `SOCIAL_LINKS`, used by metadata and the JSON-LD in `page.js`.
+- `src/app/components/` holds all UI components, each a self-contained section or widget (no shared component library elsewhere). `PipelineFigure.jsx` renders the interactive SVG "fig. 1" pipeline diagram; its parts live in `components/diagram/` (`SystemDiagram`, `MiniFlow`, `NodeBadge`, `DiagramLegend`).
 - Content is hardcoded as JS data literals inside components rather than pulled from a CMS or JSON files. To add/edit a project, skill, or credential, edit these arrays directly:
   - `ProjectsSection.jsx`: `projectsData` array (`title`, `kind`, `description`, `image`, `previewUrl`, optional `gitUrl`, `skills`) rendered as a vertical list of `ProjectCard`s. This is a plain list, not a filterable/tagged grid.
   - `AboutSection.jsx`: `SKILL_GROUPS` (categorized tech "spec sheet") and `CREDENTIALS` (education/certifications) drive static content. Not tabbed.
 
 ### Design system
 
-The visual identity is an "instrument / console" theme; there is no light mode (`color-scheme: dark`).
+Full spec is in `DESIGN.md` (product context in `PRODUCT.md`); read it before UI changes. Summary: a light "live blueprint" theme, no dark mode (`color-scheme: light`).
 
-- Palette lives in `tailwind.config.js` under `theme.extend.colors`: `ink` (base bg), `panel`/`panel-2` (raised surfaces), `line`/`line-soft` (borders), `text`/`muted`/`faint` (type), and two signal colors, `amber` (active/CTA) and `teal` (live/links), each with a `-dim` variant. Use these semantic names; do not reintroduce old `primary`/`secondary` or `bg-[#121212]` literals.
-- `src/app/globals.css` defines the recurring structural devices: a faint engineering-grid page background, the `.eyebrow` monospace label utility (used to head every section, e.g. `// about`), `.hero-glow`, `::selection`, focus-visible outlines, and a `prefers-reduced-motion` reset.
-- Framer Motion drives scroll-in reveals; custom keyframes/animations (`pulse-dot`, `fade-up`, `draw-x`, `feed`) are defined in `tailwind.config.js`.
+- Palette lives in `tailwind.config.js` under `theme.extend.colors`: `canvas` (page bg), `canvas-2`, `paper` (surfaces), `ink` (text and linework), `muted`/`faint`, `line`/`line-soft` (hairlines), one signal color `accent`/`accent-dim` (indigo), and `error`. Use these names; do not reintroduce the old dark-theme names (`panel`, `amber`, `teal`, `text`) or hex literals.
+- Rules: one accent color only; depth via fill step plus hairline border, never shadows; DM Sans for prose, IBM Plex Mono for machine-voice content (node IDs, chips, counters, nav/buttons).
+- `src/app/globals.css` defines the graph-paper grid background, `::selection`, focus-visible outlines, and a `prefers-reduced-motion` reset.
+- Framer Motion drives scroll-in reveals; custom keyframes/animations (`pulse-dot`, `fade-up`) are defined in `tailwind.config.js`.
 
 ### Contact form
 

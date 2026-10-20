@@ -4,35 +4,31 @@
   "title": "Design System: Dhia Bejaoui Portfolio",
   "extensions": {
     "colorMeta": {
-      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "oklch(17.7% 0.011 260.6)", "tonalRamp": ["#080b10", "#26292f", "#44484e", "#656970", "#888c93", "#adb1b9", "#d3d8df", "#eaeff6"] },
-      "panel": { "role": "neutral", "displayName": "Panel", "canonical": "oklch(21.6% 0.016 256.8)", "tonalRamp": ["#070b12", "#242931", "#424850", "#636972", "#868d96", "#abb2bb", "#d1d8e2", "#e8eff9"] },
-      "panel-2": { "role": "neutral", "displayName": "Panel Secondary", "canonical": "oklch(24.9% 0.020 254.9)", "tonalRamp": ["#060c13", "#222933", "#414853", "#616a75", "#848d98", "#a9b2be", "#cfd8e5", "#e6effc"] },
-      "line": { "role": "neutral", "displayName": "Line", "canonical": "oklch(30.5% 0.024 251.1)", "tonalRamp": ["#040c15", "#202a35", "#3e4955", "#5f6a77", "#828e9b", "#a6b3c0", "#ccd9e7", "#e3f0ff"] },
-      "line-soft": { "role": "neutral", "displayName": "Line Soft", "canonical": "oklch(26.9% 0.024 253.7)", "tonalRamp": ["#050c15", "#212a35", "#3f4955", "#5f6a77", "#828d9b", "#a7b2c1", "#cdd9e8", "#e4f0ff"] },
-      "text": { "role": "neutral", "displayName": "Text", "canonical": "oklch(93.5% 0.008 253.9)", "tonalRamp": ["#090b0f", "#26292d", "#45484c", "#66696e", "#898c91", "#aeb1b6", "#d4d8dd", "#ebeff4"] },
-      "muted": { "role": "neutral", "displayName": "Muted", "canonical": "oklch(67.1% 0.027 252.0)", "tonalRamp": ["#040c16", "#1f2a36", "#3d4956", "#5e6a78", "#818e9c", "#a5b3c2", "#cbd9e9", "#e2f0ff"] },
-      "faint": { "role": "neutral", "displayName": "Faint", "canonical": "oklch(60.7% 0.022 245.8)", "tonalRamp": ["#040c14", "#202a33", "#3e4953", "#5f6a75", "#828e99", "#a6b3be", "#ccd9e5", "#e3f0fd"] },
-      "amber": { "role": "primary", "displayName": "Signal Amber", "canonical": "oklch(76.1% 0.141 72.1)", "tonalRamp": ["#290000", "#4f1000", "#743400", "#995700", "#c07b00", "#e8a13a", "#ffc765", "#ffdf7d"] },
-      "amber-dim": { "role": "primary", "displayName": "Amber Dim", "canonical": "oklch(53.0% 0.093 76.7)", "tonalRamp": ["#1f0100", "#411f00", "#633f00", "#876121", "#ac8447", "#d3a96c", "#fad091", "#ffe7a8"] },
-      "teal": { "role": "secondary", "displayName": "Live Teal", "canonical": "oklch(66.3% 0.097 189.8)", "tonalRamp": ["#001514", "#003633", "#005753", "#007a75", "#319f99", "#5dc5be", "#86ece5", "#9dfffd"] },
-      "teal-dim": { "role": "secondary", "displayName": "Teal Dim", "canonical": "oklch(44.6% 0.061 189.1)", "tonalRamp": ["#001210", "#00322f", "#14524e", "#3b7470", "#5f9894", "#83beb9", "#a9e5e0", "#c0fcf7"] },
-      "error": { "role": "neutral", "displayName": "Error Red (Tailwind red-400, borrowed)", "canonical": "oklch(71.1% 0.166 22.2)", "tonalRamp": ["#380000", "#630000", "#8c0019", "#b5333a", "#df5a5c", "#ff8180", "#ffa8a5", "#ffbfbb"] }
+      "canvas": { "role": "neutral", "displayName": "Canvas", "canonical": "oklch(96.4% 0.003 253.9)", "tonalRamp": ["#0e0f11", "#292b2e", "#47494d", "#67696d", "#898b8f", "#adafb3", "#d3d5d9", "#f6f7f9"] },
+      "canvas-2": { "role": "neutral", "displayName": "Canvas Secondary", "canonical": "oklch(94.0% 0.006 264.5)", "tonalRamp": ["#0e0f12", "#292b2f", "#474a4e", "#686a6f", "#8a8d93", "#aeb1b7", "#d4d7dd", "#eef0f4"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "oklch(100% 0 0)", "tonalRamp": ["#0f0f10", "#2a2a2b", "#484849", "#69696a", "#8b8b8c", "#afafb0", "#d5d5d6", "#ffffff"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "oklch(23.7% 0.014 258.6)", "tonalRamp": ["#04050a", "#14181d", "#2e3238", "#4c5056", "#6c7076", "#8c9096", "#adb1b7", "#d0d3d7"] },
+      "muted": { "role": "neutral", "displayName": "Muted", "canonical": "oklch(46.4% 0.017 258.4)", "tonalRamp": ["#0a0d10", "#25282c", "#414548", "#5b6572", "#7c8087", "#a0a4aa", "#c5c9ce", "#e9ebee"] },
+      "faint": { "role": "neutral", "displayName": "Faint", "canonical": "oklch(48.3% 0.014 258.9)", "tonalRamp": ["#0b0d10", "#26282c", "#434649", "#636d78", "#7f8388", "#a2a6ab", "#c7cace", "#ebedee"] },
+      "line": { "role": "neutral", "displayName": "Line", "canonical": "oklch(87.4% 0.007 258.4)", "tonalRamp": ["#0e1013", "#292c30", "#47494e", "#68696f", "#8a8c92", "#aeb0b6", "#d7dbe1", "#f2f3f5"] },
+      "line-soft": { "role": "neutral", "displayName": "Line Soft", "canonical": "oklch(92.5% 0.005 258.7)", "tonalRamp": ["#0e0f12", "#292b2e", "#47494d", "#68696e", "#898b90", "#adafb5", "#e6e9ed", "#f8f9fa"] },
+      "accent": { "role": "primary", "displayName": "Signal Indigo", "canonical": "oklch(45.0% 0.180 270.0)", "tonalRamp": ["#05081c", "#111a4a", "#1c2c78", "#273ea6", "#3556d9", "#6d84e6", "#a6b3f0", "#dce3fa"] },
+      "accent-dim": { "role": "primary", "displayName": "Indigo Dim", "canonical": "oklch(92.6% 0.023 270.0)", "tonalRamp": ["#050818", "#131c3e", "#233066", "#37458f", "#5468b9", "#8291d2", "#b6c0e8", "#dce3fa"] },
+      "error": { "role": "neutral", "displayName": "Error Red", "canonical": "oklch(57.0% 0.215 27.3)", "tonalRamp": ["#2c0000", "#4f0404", "#761212", "#a01e1e", "#c92b2b", "#dc2626", "#f27e7e", "#fbc4c4"] }
     },
     "typographyMeta": {
       "display": { "displayName": "Display", "purpose": "Hero H1 only, exactly one instance per page." },
       "headline": { "displayName": "Headline", "purpose": "Section H2s (About, Projects, Contact)." },
-      "title": { "displayName": "Title", "purpose": "Project card H3s and the hero 'currently building' project name." },
+      "title": { "displayName": "Title", "purpose": "Project card H3s." },
       "body": { "displayName": "Body", "purpose": "Narrative paragraphs; a denser text-sm variant carries project card descriptions." },
-      "label": { "displayName": "Label / Eyebrow", "purpose": "The `.eyebrow` utility: section `// label` headers and small mono tags." }
+      "label": { "displayName": "Label", "purpose": "Uppercase category names: contact form field labels, About's credential/skill group labels. Always DM Sans, never mono." },
+      "mono": { "displayName": "System Voice / Mono", "purpose": "Node IDs and badges, diagram edge/flow labels, skill chips, counters, nav links, and button/CTA labels; anything read as literal or system-generated." }
     },
-    "shadows": [
-      { "name": "hero-panel-lift", "value": "0 20px 60px -30px rgba(0,0,0,0.9)", "purpose": "Used exactly once, on the hero status panel. Not a reusable elevation level." }
-    ],
+    "shadows": [],
     "motion": [
-      { "name": "pulse-dot", "value": "pulse-dot 2s ease-in-out infinite (opacity 1→0.35→1, scale 1→0.85→1)", "purpose": "Marks anything 'live': status dots, badges, feed indicators." },
-      { "name": "fade-up", "value": "fade-up 0.6s ease-out both (translateY 12px→0, opacity 0→1)", "purpose": "Staggered entrance for hero content blocks." },
-      { "name": "draw-x", "value": "draw-x 0.7s ease-out both (scaleX 0→1)", "purpose": "Underline draw-in beneath the hero's emphasized word." },
-      { "name": "feed", "value": "feed 1.2s ease-in-out infinite (scaleY 0.3→1→0.3), staggered per bar", "purpose": "Ambient activity bars in the hero 'currently building' readout." }
+      { "name": "pulse-dot", "value": "pulse-dot 2.2s ease-in-out infinite (opacity 1→0.4→1, scale 1→0.82→1)", "purpose": "Marks anything 'live': the diagram's live node, status badges, the footer dot." },
+      { "name": "fade-up", "value": "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) both (translateY 14px→0, opacity 0→1)", "purpose": "Hero content entrance." },
+      { "name": "diagram-edge-draw", "value": "framer-motion pathLength 0→1, staggered ~0.08-0.12s per edge/node, ease [0.16,1,0.3,1], whileInView once", "purpose": "Diagram nodes and edges draw in on scroll (SystemDiagram and MiniFlow)." }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" },
@@ -46,33 +42,33 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Main call-to-action: hero 'view work', form submit, project card 'visit'.",
-      "html": "<button class=\"ds-btn-primary\">view work →</button>",
-      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #E8A13A; color: #0E1116; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; font-weight: 500; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; transition: background-color 0.2s ease; } .ds-btn-primary:hover { background: rgba(232, 161, 58, 0.9); } .ds-btn-primary:focus-visible { outline: 2px solid #3AA6A0; outline-offset: 2px; } .ds-btn-primary:disabled { cursor: not-allowed; opacity: 0.6; }"
+      "description": "Main call-to-action: hero 'view the work', form submit, project card 'visit'.",
+      "html": "<button class=\"ds-btn-primary\">view the work →</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #3556D9; color: #FFFFFF; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 14px; font-weight: 500; padding: 12px 24px; border: 1px solid #14181D; border-radius: 4px; cursor: pointer; transition: background-color 0.2s ease; } .ds-btn-primary:hover { background: #14181D; } .ds-btn-primary:focus-visible { outline: 2px solid #3556D9; outline-offset: 2px; } .ds-btn-primary:disabled { cursor: not-allowed; opacity: 0.6; }"
     },
     {
       "name": "Secondary Button",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Lower-emphasis action: download CV, project 'source' link.",
-      "html": "<button class=\"ds-btn-secondary\">download cv</button>",
-      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: #1B222B; color: #E6EAEF; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; font-weight: 400; padding: 12px 24px; border: 1px solid #26303B; border-radius: 6px; cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease; } .ds-btn-secondary:hover { border-color: #3AA6A0; color: #3AA6A0; } .ds-btn-secondary:focus-visible { outline: 2px solid #3AA6A0; outline-offset: 2px; }"
+      "description": "Lower-emphasis action: download résumé, project 'source' link.",
+      "html": "<button class=\"ds-btn-secondary\">download résumé</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #14181D; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 14px; font-weight: 400; padding: 12px 24px; border: 1px solid #14181D; border-radius: 4px; cursor: pointer; transition: background-color 0.2s ease; } .ds-btn-secondary:hover { background: #EEF0F4; } .ds-btn-secondary:focus-visible { outline: 2px solid #3556D9; outline-offset: 2px; }"
     },
     {
       "name": "Skill Chip",
       "kind": "chip",
       "refersTo": "chip",
-      "description": "Read-only tag for skills/tech in the About spec sheet and project cards.",
+      "description": "Read-only tag for skills/tech in the About dependency manifest and project cards.",
       "html": "<span class=\"ds-chip\">TypeScript</span>",
-      "css": ".ds-chip { display: inline-block; background: rgba(14, 17, 22, 0.5); color: #78848F; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; padding: 2px 8px; border: 1px solid #26303B; border-radius: 4px; transition: border-color 0.2s ease, color 0.2s ease; } .ds-chip.ds-chip-interactive:hover { border-color: #E8A13A; color: #E8A13A; }"
+      "css": ".ds-chip { display: inline-block; background: #F6F7F9; color: #636D78; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; padding: 2px 8px; border: 1px solid #D7DBE1; border-radius: 4px; transition: border-color 0.2s ease, color 0.2s ease; } .ds-chip.ds-chip-interactive:hover { border-color: #3556D9; color: #3556D9; }"
     },
     {
       "name": "Panel Card",
       "kind": "card",
       "refersTo": "card",
-      "description": "Generic raised container: project cards, contact form, spec sheet, credential blocks.",
+      "description": "Generic raised container: project cards, contact form, About panel.",
       "html": "<div class=\"ds-card\"><p class=\"ds-card-title\">Card title</p><p class=\"ds-card-body\">Supporting copy sits here in the muted body color.</p></div>",
-      "css": ".ds-card { background: #151A21; border: 1px solid #26303B; border-radius: 12px; padding: 24px; } .ds-card-title { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.025em; color: #E6EAEF; margin: 0 0 8px; } .ds-card-body { font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.625; color: #8A97A6; margin: 0; }"
+      "css": ".ds-card { background: #FFFFFF; border: 1px solid #D7DBE1; border-radius: 8px; padding: 24px; } .ds-card-title { font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.015em; color: #14181D; margin: 0 0 8px; } .ds-card-body { font-family: 'DM Sans', system-ui, sans-serif; font-size: 14px; line-height: 1.625; color: #5B6572; margin: 0; }"
     },
     {
       "name": "Text Input",
@@ -80,54 +76,63 @@
       "refersTo": "input",
       "description": "Contact form field (email, subject, message).",
       "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"you@company.com\" />",
-      "css": ".ds-input { width: 100%; background: rgba(14, 17, 22, 0.6); border: 1px solid #26303B; border-radius: 6px; color: #E6EAEF; font-family: 'Inter', system-ui, sans-serif; font-size: 14px; padding: 10px 14px; transition: border-color 0.2s ease; } .ds-input::placeholder { color: #78848F; } .ds-input:focus { outline: none; border-color: #3AA6A0; }"
+      "css": ".ds-input { width: 100%; background: #F6F7F9; border: 1px solid #D7DBE1; border-radius: 4px; color: #14181D; font-family: 'DM Sans', system-ui, sans-serif; font-size: 14px; padding: 10px 14px; transition: border-color 0.2s ease; } .ds-input::placeholder { color: #636D78; } .ds-input:focus { outline: none; border-color: #3556D9; }"
     },
     {
-      "name": "Eyebrow Label",
+      "name": "Node Badge",
       "kind": "custom",
-      "refersTo": "label",
-      "description": "The recurring `// section` header device.",
-      "html": "<p class=\"ds-eyebrow\"><span class=\"ds-eyebrow-mark\">//</span> about</p>",
-      "css": ".ds-eyebrow { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: #78848F; margin: 0; } .ds-eyebrow-mark { color: #3AA6A0; }"
+      "refersTo": "badge-status",
+      "description": "The corner ID tag astride a container's top border, e.g. N01, P01, N-MSG. The recurring device on About, Contact, and each project card.",
+      "html": "<span class=\"ds-node-badge\"><span class=\"ds-node-dot\"></span>N01</span>",
+      "css": ".ds-node-badge { position: absolute; top: -12px; left: 16px; display: inline-flex; align-items: center; gap: 6px; background: #F6F7F9; border: 1px solid #14181D; color: #14181D; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; padding: 2px 8px; } .ds-node-dot { width: 6px; height: 6px; border-radius: 9999px; background: #3556D9; animation: ds-pulse-dot 2.2s ease-in-out infinite; } @keyframes ds-pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.82); } }"
     },
     {
-      "name": "Live Badge",
+      "name": "Status Badge",
+      "kind": "chip",
+      "refersTo": "badge-status",
+      "description": "The 'available' / 'available for work' pill with a pulsing status dot. Sharp-cornered, unlike every other container in the system.",
+      "html": "<span class=\"ds-status-badge\"><span class=\"ds-dot\"></span>available</span>",
+      "css": ".ds-status-badge { display: inline-flex; align-items: center; gap: 8px; background: #DCE3FA; border: 1px solid #3556D9; color: #3556D9; font-family: 'DM Sans', system-ui, sans-serif; font-size: 12px; padding: 4px 12px; } .ds-status-badge .ds-dot { width: 6px; height: 6px; border-radius: 9999px; background: #3556D9; animation: ds-pulse-dot 2.2s ease-in-out infinite; }"
+    },
+    {
+      "name": "Diagram Node",
       "kind": "custom",
-      "refersTo": "chip",
-      "description": "The 'available' / 'live' / 'online' pill with a pulsing status dot.",
-      "html": "<span class=\"ds-live-badge\"><span class=\"ds-dot\"></span>available</span>",
-      "css": ".ds-live-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(58, 166, 160, 0.1); border: 1px solid #245F5B; color: #3AA6A0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; padding: 4px 12px; border-radius: 9999px; } .ds-live-badge .ds-dot { width: 6px; height: 6px; border-radius: 9999px; background: #3AA6A0; animation: ds-pulse-dot 2s ease-in-out infinite; } @keyframes ds-pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.85); } }"
+      "refersTo": "card",
+      "description": "One node from SystemDiagram/MiniFlow: an SVG rect + label pair, hover/focus/click-to-pin, keyboard- and touch-operable, dims to 0.2 opacity when a different node is active.",
+      "html": "<svg width=\"180\" height=\"64\" class=\"ds-diagram-node\" tabindex=\"0\" role=\"button\" aria-label=\"INTERFACE, this page. Select to highlight its connections.\"><rect x=\"1\" y=\"1\" width=\"178\" height=\"62\" rx=\"4\" fill=\"#DCE3FA\" stroke=\"#3556D9\" stroke-width=\"1.75\"/><circle cx=\"164\" cy=\"15\" r=\"4\" fill=\"#3556D9\" stroke=\"#3556D9\" stroke-width=\"1.5\"/><text x=\"14\" y=\"28\" font-family=\"IBM Plex Mono, monospace\" font-size=\"12\" font-weight=\"500\" fill=\"#14181D\" letter-spacing=\"0.04em\">INTERFACE</text><text x=\"14\" y=\"46\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" fill=\"#5B6572\">this page</text></svg>",
+      "css": ".ds-diagram-node { cursor: pointer; overflow: visible; } .ds-diagram-node:focus-visible { outline: 2px solid #3556D9; outline-offset: 2px; }"
     }
   ],
   "narrative": {
-    "northStar": "The Live Systems Console",
-    "overview": "The site reads as a monitoring console for systems that are actually running, not a decorative resume. Its central device is the hero's status panel: a bordered instrument reading online, live status rows, and a currently building readout with animated feed bars, all rendered in monospace. That same console vocabulary repeats everywhere else at lower volume: section headers are prefixed like code comments (// about, // selected work, // contact), a faint engineering grid sits behind the whole page, and a teal pulse dot marks anything live (available-for-work badges, deployed project cards, the footer). There is deliberately no light mode; color-scheme: dark is a structural commitment, not a default left unset.\n\nThe palette runs almost entirely on three near-black neutrals (ink / panel / panel-2) separated by hairline borders rather than shadows, with exactly two signal colors doing all the semantic work: amber for active, building, call to action and teal for healthy, live, links. Nothing else competes with them, there is no tertiary accent and no decorative gradient beyond one very low-opacity radial glow behind the hero.\n\nTypography carries three distinct jobs rather than a single hierarchy: Space Grotesk (display) is reserved for headings and nothing else, Inter (body) carries narrative prose, and JetBrains Mono is the console's own voice, used for eyebrows, buttons, nav, badges, form labels, and every readout value. That third font is doing as much identity work as the color system; a page with the headings and colors right but body copy set in the mono font, or CTAs set in Inter, would immediately read as off-model.",
+    "northStar": "The Live Blueprint",
+    "overview": "The site is built on a literal premise: rather than describing systems Dhia has shipped, the page draws them. The page's centerpiece is not an illustration, it is a working SVG pipeline diagram (\"fig. 1\", set between About and Projects) (ingest, schedule, API, interface, with the retry/alert loop that actually runs in production), and every project card repeats the same node-and-edge grammar at a smaller scale for its own real architecture. The diagram is interactive, not decorative: hovering, focusing, or clicking a node pins it and dims everything not connected to it, with full keyboard (tabIndex, role=button, Enter/Space) and touch support. This single device, not a color or a font, is the system's actual signature.\n\nAround that device sits a light, drafting-table canvas: an off-white graph-paper grid, graphite-ink linework, and exactly one signal color (indigo) for anything live, active, or actionable. There is no dark mode; color-scheme: light is a structural commitment. Depth is never a shadow, it's a three-step surface stack (canvas, canvas-2, paper) plus a hairline border, the same restraint a technical drawing uses.\n\nType carries two jobs, not three: DM Sans reads as the human voice (headings, narrative, field labels), IBM Plex Mono reads as the system's own output (node IDs, edge labels, skill chips, counters, nav, and button labels), i.e. anything that is a literal, measured, or machine-legible value gets the mono face; anything that is prose or a category name gets the sans face.",
     "keyCharacteristics": [
-      "Near-black, single-hue neutral stack (ink/panel/panel-2) with hairline borders, not shadows, as the primary depth device.",
-      "Exactly two signal colors (amber = active/CTA, teal = live/healthy), each with a dim variant for low-emphasis contexts (pills, badges).",
-      "Three-font system with strict role separation: Space Grotesk for headings only, Inter for narrative body copy, JetBrains Mono for every piece of interface chrome (labels, buttons, nav, badges, status text).",
-      "Monospace 'code comment' motif (//) used as the recurring section-eyebrow device.",
-      "Flat by default; the one hero status panel is the system's single deliberate, non-repeated lift."
+      "A real, interactive SVG systems diagram (hover/focus/click-to-pin, keyboard- and touch-operable) as the hero content and the recurring per-project pattern, not an illustrative accent.",
+      "Light graph-paper canvas (off-white grid on canvas) with graphite-ink linework; no dark mode.",
+      "Exactly one signal color, indigo accent, carrying every live/active/action meaning; no secondary hue.",
+      "Flat by default, everywhere, no exceptions: depth is a fill-step (canvas, canvas-2, paper) plus a line hairline border, never a shadow.",
+      "Two-font system split by content type, not by size: DM Sans for human prose and category labels, IBM Plex Mono for literal/system-voice content (node IDs, edge labels, chips, counters, nav, buttons).",
+      "Corner-badge ID tags (N01, P01, N-MSG) astride a container's border, mirroring how a component ID sits on an architecture diagram box."
     ],
     "rules": [
-      { "name": "The Two-Signal Rule", "body": "Only amber and teal are allowed to carry meaning. Amber means act now or this is actively being built. Teal means this is live and healthy. A third accent color anywhere in the system breaks the console's legibility.", "section": "colors" },
-      { "name": "The Border-Not-Shadow Rule", "body": "Depth between ink, panel, and panel-2 is expressed through a one-step brightness increase plus a line hairline border, never a shadow.", "section": "colors" },
-      { "name": "The One Display Rule", "body": "Space Grotesk display-weight type appears exactly once per page, in the hero H1. Section headlines and card titles use the same family but never the largest size; nothing should out-shout the hero's opening line.", "section": "typography" },
-      { "name": "The Flat-By-Default, One-Exception Rule", "body": "Nothing else on the page may take a shadow. If a future component needs to feel elevated, reach for a brighter panel tone and a line border first; the hero shadow is spent on the hero.", "section": "elevation" }
+      { "name": "The One-Signal Rule", "body": "Indigo is the only color in the system permitted to carry meaning: live, active, focused, or actionable. A second accent hue anywhere breaks the diagram's legibility, the whole point of the palette is that color scarcity makes 'this matters' readable at a glance.", "section": "colors" },
+      { "name": "The Fill-Not-Shadow Rule", "body": "Depth between canvas, canvas-2, and paper is expressed through a surface-fill step plus a line hairline border, never a shadow. This holds with no exception anywhere in the build, including the hero.", "section": "colors" },
+      { "name": "The Measured-Value Rule", "body": "IBM Plex Mono is reserved for content that reads as literal, machine-legible, or system-generated: node IDs, edge labels, chip tokens, counters, and the nav/button labels that act on the system. DM Sans carries everything that is authored prose or a category name: headings, body copy, field labels, group labels, status-badge sentences, and footer copy.", "section": "typography" },
+      { "name": "The Flat-Always Rule", "body": "Nothing on the page takes a shadow, including the hero. If a component needs to read as more important, reach for the accent/accent-dim pair or a brighter fill step first.", "section": "elevation" }
     ],
     "dos": [
-      "Do keep JetBrains Mono for every piece of interface chrome (nav, buttons, labels, badges, status text); it's as much the identity as the color palette.",
-      "Do use the // eyebrow device for any new section header, prefixed in teal.",
-      "Do use amber for exactly one focal action or state per screen; if two things both feel like they need amber, one of them is wrong.",
-      "Do build new elevated surfaces with a brighter neutral tone + line border before reaching for a shadow.",
-      "Do keep border radius scaled to role: 4px for tags, 6px for controls, 8-12px for containers, full for pills/dots."
+      "Do keep the diagram interaction (hover/focus/click-to-pin, 0.2 uniform dim-on-inactive opacity) fully keyboard- and touch-operable on any new diagram-like component; match tabIndex/role=\"button\"/onKeyDown/.diagram-node:focus-visible.",
+      "Do reserve IBM Plex Mono for literal/system-voice content (node IDs, edge labels, chips, counters, nav, buttons) and DM Sans for everything authored (headings, body, field/group labels, badge sentences, footer).",
+      "Do use indigo for exactly the 'live/active/actionable' meaning; nothing else earns color.",
+      "Do build new elevated-feeling surfaces with a fill-step (canvas, canvas-2, paper) plus a line border, never a shadow.",
+      "Do keep the radius split: 4px for controls and diagram nodes, 8px for containers, 0px (sharp) for ID badges and status pills."
     ],
     "donts": [
-      "Don't introduce a third signal color; amber and teal already cover the system's entire semantic range.",
-      "Don't add a second shadow anywhere; the hero status panel's shadow is spent, it does not establish a reusable elevation level.",
-      "Don't set body prose in JetBrains Mono, or interface chrome (buttons, nav, labels) in Inter; the role split between the two is deliberate and load-bearing.",
-      "Don't introduce a light mode or make color-scheme conditional; darkness is a structural commitment (:root { color-scheme: dark }), not a default left unset.",
-      "Don't use error (red-400) for anything besides form validation/error messaging."
+      "Don't introduce a second accent color; indigo already covers the system's entire semantic range.",
+      "Don't add a shadow anywhere; the system is flat with no exceptions, not even for the hero.",
+      "Don't set headings or body prose in IBM Plex Mono, or chips/counters/nav/buttons in DM Sans; the split is deliberate and load-bearing.",
+      "Don't introduce a dark mode or make color-scheme conditional; light is a structural commitment (:root { color-scheme: light }), not a default left unset.",
+      "Don't use error (#DC2626) for anything besides contact-form validation."
     ]
   }
 }

@@ -1,217 +1,221 @@
 ---
 name: Dhia Bejaoui Portfolio
-description: A dark, monospace-accented "instrument console" system for a fullstack/systems engineer's portfolio.
+description: A light graph-paper "systems diagram" portfolio where the centerpiece is a literal, interactive pipeline diagram rather than prose about one.
 colors:
-  ink: "#0E1116"
-  panel: "#151A21"
-  panel-2: "#1B222B"
-  line: "#26303B"
-  line-soft: "#1E2732"
-  text: "#E6EAEF"
-  muted: "#8A97A6"
-  faint: "#78848F"
-  amber: "#E8A13A"
-  amber-dim: "#8A6425"
-  teal: "#3AA6A0"
-  teal-dim: "#245F5B"
-  error: "#F87171"
+  canvas: "#F6F7F9"
+  canvas-2: "#EEF0F4"
+  paper: "#FFFFFF"
+  ink: "#14181D"
+  muted: "#5B6572"
+  faint: "#636D78"
+  line: "#D7DBE1"
+  line-soft: "#E6E9ED"
+  accent: "#3556D9"
+  accent-dim: "#DCE3FA"
+  error: "#DC2626"
 typography:
   display:
-    fontFamily: "Space Grotesk, system-ui, sans-serif"
-    fontSize: "3rem"
+    fontFamily: "DM Sans, system-ui, sans-serif"
+    fontSize: "clamp(2.25rem, 5vw, 3.75rem)"
     fontWeight: 700
-    lineHeight: "1.02"
-    letterSpacing: "-0.025em"
+    lineHeight: "1.08"
+    letterSpacing: "-0.015em"
   headline:
-    fontFamily: "Space Grotesk, system-ui, sans-serif"
-    fontSize: "1.875rem"
+    fontFamily: "DM Sans, system-ui, sans-serif"
+    fontSize: "clamp(1.875rem, 3vw, 2.25rem)"
     fontWeight: 700
-    letterSpacing: "-0.025em"
+    letterSpacing: "-0.015em"
   title:
-    fontFamily: "Space Grotesk, system-ui, sans-serif"
+    fontFamily: "DM Sans, system-ui, sans-serif"
     fontSize: "1.5rem"
     fontWeight: 700
-    letterSpacing: "-0.025em"
+    letterSpacing: "-0.015em"
   body:
-    fontFamily: "Inter, system-ui, sans-serif"
+    fontFamily: "DM Sans, system-ui, sans-serif"
     fontSize: "1.125rem"
     fontWeight: 400
     lineHeight: "1.625"
   label:
-    fontFamily: "JetBrains Mono, ui-monospace, monospace"
-    fontSize: "0.72rem"
+    fontFamily: "DM Sans, system-ui, sans-serif"
+    fontSize: "0.75rem"
     fontWeight: 400
-    letterSpacing: "0.18em"
+    letterSpacing: "0.14em"
+  mono:
+    fontFamily: "IBM Plex Mono, ui-monospace, monospace"
+    fontSize: "0.75rem"
+    fontWeight: 400
+    letterSpacing: "0.02em"
 rounded:
+  none: "0px"
   sm: "4px"
-  md: "6px"
-  lg: "8px"
-  xl: "12px"
-  full: "9999px"
+  md: "8px"
 spacing:
   xs: "8px"
-  sm: "16px"
+  sm: "12px"
   md: "24px"
   lg: "32px"
   xl: "48px"
+  "2xl": "64px"
   section-y: "80px"
 components:
   button-primary:
-    backgroundColor: "{colors.amber}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.md}"
+    backgroundColor: "{colors.accent}"
+    textColor: "#FFFFFF"
+    rounded: "{rounded.sm}"
     padding: "12px 24px"
   button-secondary:
-    backgroundColor: "{colors.panel-2}"
-    textColor: "{colors.text}"
-    rounded: "{rounded.md}"
+    backgroundColor: "transparent"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.sm}"
     padding: "12px 24px"
   chip:
-    backgroundColor: "{colors.ink}"
+    backgroundColor: "{colors.canvas}"
     textColor: "{colors.faint}"
     rounded: "{rounded.sm}"
     padding: "2px 8px"
   card:
-    backgroundColor: "{colors.panel}"
-    rounded: "{rounded.xl}"
+    backgroundColor: "{colors.paper}"
+    rounded: "{rounded.md}"
     padding: "24px"
   input:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.text}"
-    rounded: "{rounded.md}"
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.sm}"
     padding: "10px 14px"
+  badge-status:
+    backgroundColor: "{colors.accent-dim}"
+    textColor: "{colors.accent}"
+    rounded: "{rounded.none}"
+    padding: "4px 12px"
 ---
 
 # Design System: Dhia Bejaoui Portfolio
 
 ## Overview
 
-**Creative North Star: "The Live Systems Console"**
+**Creative North Star: "The Live Blueprint"**
 
-The site reads as a monitoring console for systems that are actually running, not a decorative resume. Its central device is the hero's status panel: a bordered instrument reading `online`, live status rows, and a "currently building" readout with animated feed bars, all rendered in monospace. That same console vocabulary repeats everywhere else at lower volume: section headers are prefixed like code comments (`// about`, `// selected work`, `// contact`), a faint engineering grid sits behind the whole page, and a teal pulse dot marks anything "live" (available-for-work badges, deployed project cards, the footer). There is deliberately no light mode; `color-scheme: dark` is a structural commitment, not a default left unset.
+The site is built on a literal premise: rather than describing systems Dhia has shipped, the page draws them. The page's centerpiece is not an illustration, it is a working SVG pipeline diagram ("fig. 1", set between About and Projects) (schedule → ingest → API → interface, with the retry/alert loop that actually runs in production), and every project card repeats the same node-and-edge grammar at a smaller scale for its own real architecture. The diagram is interactive, not decorative: hovering, focusing, or clicking a node pins it and dims everything not connected to it, with full keyboard (`tabIndex`, `role="button"`, Enter/Space) and touch support. This single device, not a color or a font, is the system's actual signature.
 
-The palette runs almost entirely on three near-black neutrals (`ink` / `panel` / `panel-2`) separated by hairline borders rather than shadows, with exactly two signal colors doing all the semantic work: amber for "active, building, call to action" and teal for "healthy, live, links." Nothing else competes with them, there is no tertiary accent and no decorative gradient beyond one very low-opacity radial glow behind the hero.
+Around that device sits a light, drafting-table canvas: an off-white graph-paper grid, graphite-ink linework, and exactly one signal color (indigo) for anything live, active, or actionable. There is no dark mode; `color-scheme: light` is a structural commitment. Depth is never a shadow, it's a three-step surface stack (canvas → canvas-2 → paper) plus a hairline border, the same restraint a technical drawing uses.
 
-Typography carries three distinct jobs rather than a single hierarchy: Space Grotesk (`display`) is reserved for headings and nothing else, Inter (`body`) carries narrative prose, and JetBrains Mono is the console's own voice, used for eyebrows, buttons, nav, badges, form labels, and every readout value. That third font is doing as much identity work as the color system; a page with the headings and colors right but body copy set in the mono font, or CTAs set in Inter, would immediately read as off-model.
+Type carries two jobs, not three: DM Sans reads as the human voice (headings, narrative, field labels), IBM Plex Mono reads as the system's own output (node IDs, edge labels, skill chips, counters, nav, and button labels), i.e. anything that is a literal, measured, or machine-legible value gets the mono face; anything that is prose or a category name gets the sans face.
 
 **Key Characteristics:**
-- Near-black, single-hue neutral stack (ink/panel/panel-2) with hairline borders, not shadows, as the primary depth device.
-- Exactly two signal colors (amber = active/CTA, teal = live/healthy), each with a dim variant for low-emphasis contexts (pills, badges).
-- Three-font system with strict role separation: Space Grotesk for headings only, Inter for narrative body copy, JetBrains Mono for every piece of interface chrome (labels, buttons, nav, badges, status text).
-- Monospace "code comment" motif (`//`) used as the recurring section-eyebrow device.
-- Flat by default; the one hero status panel is the system's single deliberate, non-repeated lift.
+- A real, interactive SVG systems diagram (hover/focus/click-to-pin, keyboard- and touch-operable) as the page's centerpiece and the recurring per-project pattern, not an illustrative accent.
+- Light graph-paper canvas (off-white grid on `canvas`) with graphite-ink linework; no dark mode.
+- Exactly one signal color, indigo `accent`, carrying every live/active/action meaning; no secondary hue.
+- Flat by default, everywhere, no exceptions: depth is a fill-step (canvas → canvas-2 → paper) plus a `line` hairline border, never a shadow.
+- Two-font system split by content type, not by size: DM Sans for human prose and category labels, IBM Plex Mono for literal/system-voice content (node IDs, edge labels, chips, counters, nav, buttons).
+- Corner-badge ID tags (`N01`, `P01`, `N-MSG`) astride a container's border, mirroring how a component ID sits on an architecture diagram box.
 
 ## Colors
 
-Almost monochrome by design: three near-black neutrals carry every surface, and only amber and teal are allowed to mean something.
+Nearly monochrome on paper and ink, with one indigo doing all of the system's semantic signaling.
 
 ### Primary
-- **Signal Amber** (`#E8A13A`): the "active" color. Owns primary CTAs (view work, send message), the logo mark's initials, the hero's headline emphasis word ("running"), and the "currently building" readout. Never used for more than one focal element per screen.
-
-### Secondary
-- **Live Teal** (`#3AA6A0`): the "healthy / live" color. Owns the pulse dot, "available for work" and "live" badges, links and their hover states, focus rings, and the `//` eyebrow marks. Where amber says "act on this," teal says "this is running and healthy."
+- **Signal Indigo** (`#3556D9`): the only color allowed to mean something. Owns primary button fills, active/live diagram nodes and their pulsing status dot, the "retry/alert" dashed edge and its arrowheads, focus-visible outlines, link and chip hover states, form-field focus borders, and the "available" / "live" status badges.
 
 ### Neutral
-- **Ink** (`#0E1116`): base page background; also reused as a slightly-transparent recessed fill inside cards (form inputs, skill chips) via `bg-ink/50` / `bg-ink/60`.
-- **Panel** (`#151A21`): the standard raised-surface background for cards (hero status panel, spec-sheet panel, project cards, contact form panel).
-- **Panel Secondary** (`#1B222B`): one step brighter than Panel; used for header bars inside panels (spec-sheet header, panel headers) and for button/icon surfaces that need to read as slightly more raised than a card body (secondary buttons, social icon buttons, mobile menu button).
-- **Text** (`#E6EAEF`): primary reading color for headings and emphasized inline text.
-- **Muted** (`#8A97A6`): secondary text; body paragraphs, nav link default state, descriptions.
-- **Faint** (`#78848F`): tertiary text; captions, eyebrow labels, index numbers, chip text, timestamps.
-- **Line** (`#26303B`): the system's one hairline border color; used on virtually every card, panel, input, and divider.
-- **Line Soft** (`#1E2732`): a quieter divider variant for internal separators (the spec-sheet's `divide-y`) and the page's background grid lines.
-- **Error** (`#F87171`, Tailwind's default `red-400`): the only color outside the custom palette, reserved strictly for form validation and submit-error text. Never used decoratively.
+- **Canvas** (`#F6F7F9`): base page background; carries the graph-paper grid (`line-soft` grid lines at 32px).
+- **Canvas-2** (`#EEF0F4`): recessed/grouped surface; the dependency-manifest header bar, each project card's diagram strip, hover backgrounds on ghost buttons and the mobile menu toggle.
+- **Paper** (`#FFFFFF`): raised surface; every card/panel body and every diagram node's fill.
+- **Ink** (`#14181D`): primary text and the default structural stroke color (button/card/node borders, the DB logo mark, diagram edges and arrowheads for the main data-flow path).
+- **Muted** (`#5B6572`): secondary text; body paragraphs, nav link default state, descriptions.
+- **Faint** (`#636D78`, confirmed ≥4.5:1 against canvas, canvas-2, and paper): tertiary text; captions, counters, index labels, credential detail lines, chip text.
+- **Line** (`#D7DBE1`): the system's one hairline border color, used on virtually every card, panel, input, and divider.
+- **Line-soft** (`#E6E9ED`): the background graph-paper grid lines only.
+- **Error** (`#DC2626`): reserved strictly for contact-form validation text. Never used decoratively.
+
+### Accent Fill
+- **Accent-dim** (`#DCE3FA`): low-emphasis indigo fill for status badges ("available", "available for work") and the live diagram node's background, paired with an `accent` stroke rather than `ink`.
 
 ### Named Rules
-**The Two-Signal Rule.** Only amber and teal are allowed to carry meaning. Amber means "act now or this is actively being built." Teal means "this is live and healthy." A third accent color anywhere in the system breaks the console's legibility.
+**The One-Signal Rule.** Indigo is the only color in the system permitted to carry meaning: live, active, focused, or actionable. A second accent hue anywhere breaks the diagram's legibility, the whole point of the palette is that color scarcity makes "this matters" readable at a glance.
 
-**The Border-Not-Shadow Rule.** Depth between ink → panel → panel-2 is expressed through a one-step brightness increase plus a `line` hairline border, never a shadow. See Elevation & Depth for the single exception.
+**The Fill-Not-Shadow Rule.** Depth between canvas → canvas-2 → paper is expressed through a surface-fill step plus a `line` hairline border, never a shadow. This holds with no exception anywhere in the build, including the hero.
 
 ## Typography
 
-**Display Font:** Space Grotesk (with system-ui, sans-serif fallback)
-**Body Font:** Inter (with system-ui, sans-serif fallback)
-**Label/Mono Font:** JetBrains Mono (with ui-monospace, monospace fallback)
+**Display/Body Font:** DM Sans (with system-ui, sans-serif fallback)
+**Mono Font:** IBM Plex Mono (with ui-monospace, monospace fallback)
 
-**Character:** Space Grotesk's slightly geometric, confident weight carries every heading; Inter stays completely out of the way for reading paragraphs; JetBrains Mono is the system's actual personality, it is what makes the site feel like an instrument rather than a brochure.
+**Character:** DM Sans carries every human sentence on the page, headings and narrative alike, with no separate display face; IBM Plex Mono is reserved for content that reads as the system's own literal output rather than authored prose.
 
 ### Hierarchy
-- **Display** (700, 3rem mobile → 3.75rem `sm` → 4.5rem `lg`, line-height 1.02, tracking -0.025em): the hero H1 only. One instance on the page.
-- **Headline** (700, 1.875rem → 2.25rem `sm`, tracking -0.025em): section H2s ("An engineer who thinks in systems...", "Systems currently in production.", "Let's build something that lasts.").
-- **Title** (700, 1.5rem, tracking -0.025em): project card H3s (project titles), and semibold at the same family for the hero's "currently building" project name.
-- **Body** (400, 1.125rem, line-height 1.625, color `muted`): narrative paragraphs in About and the contact section's lead-in. A denser body variant (400, 0.875rem, line-height 1.625, color `muted`) carries project card descriptions.
-- **Label** (400, 0.72rem, uppercase, tracking 0.18em, color `faint`): the `.eyebrow` utility; every section's `// label` header and the "building" readout tag.
-- **Interface/mono** (400–500, 0.75–0.875rem, JetBrains Mono, not uppercase): the fourth, unlisted-but-load-bearing role. Covers nav links, all button labels, status-panel key/value rows, skill chips, form field labels (paired with letter-spacing 0.18em, so form labels actually borrow the Label role's tracking at a smaller mono size), and the footer. Buttons use weight 500; everything else in this role uses 400.
+- **Display** (700, 36px → 48px `sm` → 60px `lg`, line-height 1.08, tracking -0.015em, DM Sans): the hero H1 only.
+- **Headline** (700, 30px → 36px `sm`, tracking -0.015em, DM Sans): section H2s ("An engineer who thinks in systems...", "Systems currently in production.", "Let's build something that lasts.").
+- **Title** (700, 24px, tracking -0.015em, DM Sans): project card H3s.
+- **Body** (400, 18px, line-height 1.625, `muted`, DM Sans): hero bio, About narrative, Contact lead-in. A denser variant (400, 14px, line-height 1.625, `muted`) carries project card descriptions.
+- **Label** (400, 12px, uppercase, tracking 0.14em, `faint`/`muted`, DM Sans): contact form field labels, About's credential and skill group labels ("education", "languages", "frontend"). Never mono, these are category names, not measured values.
+- **Mono/system-voice** (400–500, 10–14px, IBM Plex Mono, not uppercase): diagram node IDs and their corner badges, diagram edge/flow labels, skill and tech chips, counters ("4 of 4 · all deployed", "22 entries"), the `dependencies.lock` manifest header, credential detail lines (institution/certifier + date), project "kind" tags, nav links and the logo wordmark, and every button/CTA label.
 
 ### Named Rules
-**The One Display Rule.** Space Grotesk display-weight type appears exactly once per page, in the hero H1. Section headlines and card titles use the same family but never the largest size; nothing should out-shout the hero's opening line.
+**The Measured-Value Rule.** IBM Plex Mono is reserved for content that reads as literal, machine-legible, or system-generated: node IDs, edge labels, chip tokens, counters, and the nav/button labels that act on the system. DM Sans carries everything that is authored prose or a category name: headings, body copy, field labels, group labels, status-badge sentences, and footer copy. Setting a heading or a paragraph in mono, or a chip/counter in sans, immediately reads as off-model.
 
 ## Layout
 
-Single-column, single-page composition (`src/app/page.js`): Navbar (fixed) → Hero → About → Projects → Contact → Footer, inside one `container mx-auto px-6 lg:px-12` wrapper. There is no grid of pages, only vertical scroll through five sections plus a fixed nav.
+Single-column, single-page composition (`src/app/page.js`): fixed Navbar, then Hero → About → Pipeline figure → Projects → Contact inside one `container mx-auto px-6 lg:px-12` wrapper (content offset `pt-14` below the fixed nav), then Footer outside the container. There is no routing beyond this one page.
 
-Section rhythm is generous and consistent: `py-20` (80px) on mobile, `py-28` (112px) at `lg`, on every major section (About, Projects, Contact). Two-column content within a section (Hero's thesis + status panel, About's narrative + spec sheet, Contact's pitch + form) uses `grid gap-12 lg:gap-16` (48px → 64px), collapsing to a single stacked column below `lg`. The project list stacks vertically with `gap-6 lg:gap-8` (24px → 32px) between cards regardless of viewport; project cards themselves switch from stacked (image over content) to a `42%/58%` image/content split via `md:grid-cols-[minmax(0,42%)_1fr]`.
+Section rhythm is consistent: `py-20` (80px) on mobile, `py-28` (112px) at `lg`, on every major section (About, Projects, Contact). Two-column content within a section (About's narrative + dependency manifest, Contact's pitch + form) uses `grid gap-12 lg:gap-16` (48px → 64px), collapsing to a single stacked column below `lg`. The project list stacks vertically with `gap-6 lg:gap-8` (24px → 32px) regardless of viewport; each project card's image/content split is `38%/62%` via `md:grid-cols-[minmax(0,38%)_1fr]`, and every project card carries its own full-width diagram strip (`canvas-2` background, horizontally scrollable on narrow viewports) above that split.
 
-Card interiors use two padding tiers: `p-6 lg:p-8` (24px → 32px) for primary panels (project cards, contact form), `p-5` (20px) for the About credential blocks and spec-sheet rows.
+Card interiors use `p-6 lg:p-8` (24px → 32px) for primary panels (About, project cards, contact form).
 
-The fixed navbar (`h`-implicit via `py-3`, `px-6 lg:px-12`) sits above a `backdrop-blur-md` translucent ink background (`bg-ink/85`) with a `border-b border-line` seam; page content compensates with `pt-14` on the content wrapper plus `scroll-mt-24` on every anchor target so fixed-nav anchor jumps land below the bar.
+The fixed navbar sits above a translucent `canvas/90` background with `backdrop-blur-md` and a `border-b border-line` seam; every anchor target carries `scroll-mt-24` so fixed-nav jumps land below the bar.
 
 ## Elevation & Depth
 
-Flat by default. Every surface transition (ink → panel → panel-2) is carried by a one-step brightness increase plus a `line` hairline border, not a shadow; the About spec-sheet and credential cards, the navbar, the project cards, and the contact form all sit at zero elevation. There is exactly one deliberate exception: the hero's signature status panel carries a soft ambient drop shadow to separate it as the page's single hero object. That shadow is not a reusable elevation token, it exists once, for one component, on purpose.
-
-### Shadow Vocabulary
-- **Hero Panel Lift** (`box-shadow: 0 20px 60px -30px rgba(0,0,0,0.9)`): used once, on the hero status panel only. A large, very soft, dark ambient shadow with no color tint, negative spread pulling it in tight; it reads as separation, not as a floating card.
+Flat, with no exception anywhere in the build (no `box-shadow` appears in any component). Every surface transition (canvas → canvas-2 → paper) is carried by a fill-step plus a `line` hairline border. "Live" or "active" state is signaled by swapping to the `accent`/`accent-dim` pair (diagram nodes, status badges), not by lifting the element, so liveness and elevation are kept as two separate, non-competing signals.
 
 ### Named Rules
-**The Flat-By-Default, One-Exception Rule.** Nothing else on the page may take a shadow. If a future component needs to feel elevated, reach for a brighter panel tone and a `line` border first; the hero shadow is spent on the hero.
+**The Flat-Always Rule.** Nothing on the page takes a shadow, including the hero. If a component needs to read as more important, reach for the `accent`/`accent-dim` pair or a brighter fill step first.
 
 ## Shapes
 
-No sharp corners and no fully round rectangles; the system sits deliberately in the middle of Tailwind's radius scale. Small inline elements (skill chips, the "DB" logo mark) use the tightest radius (4px); buttons and form inputs use a slightly softer 6px so they read as controls, not tags; primary panels and cards round further to 12px, the system's "this is a container" signal; only true pills (status badges, pulse dots, the "available" nav indicator) go fully round. Borders are always 1px, always `line` (or `line-soft` for quieter internal dividers), never a gradient or double border. No clipping, masking, or non-rectangular silhouettes anywhere in the system.
+Two radius roles, deliberately kept apart. Containers (cards, panels, buttons, inputs, the logo mark, SVG diagram-node rectangles) round softly at 4px (`rounded`, Tailwind default) for controls and the diagram nodes themselves, or 8px (`rounded-lg`) for primary panels (About, project cards, contact form, the pipeline figure frame). Read-out elements, corner ID badges (`N01`, `P01`, `N-MSG`), the "available"/"available for work" status pills, and project "kind" tags, are sharp-cornered rectangles with no radius at all, a deliberate contrast that marks them as labels sitting on top of a container rather than containers themselves. Borders are always 1px (1.25–1.75px on SVG strokes), solid `line`, `ink`, or `accent`, never a gradient or double border. No clipping, masking, or non-rectangular silhouettes anywhere in the system.
 
 ## Components
 
 ### Buttons
-- **Shape:** 6px radius (`rounded-md`) on every button, no exceptions.
-- **Primary** (view work, send message): amber fill, ink text, mono font-medium, `px-6 py-3` (main CTA) or `px-5 py-3` (form submit) or `px-4 py-2` (project card "visit"). Hover: amber at 90% opacity, no other change.
-- **Secondary / Ghost** (download cv, project "source" link, hamburger toggle): `panel-2` background (or transparent for the hamburger), `line` border, `text` or `muted` label. Hover swaps the border and label color to `teal`, never a fill change, keeping secondary actions visibly quieter than primary ones.
-- **Disabled** (form submit while sending): `disabled:opacity-60 disabled:cursor-not-allowed`, label swaps to a present-tense "sending…".
+- **Shape:** 4px radius (`rounded`) on every button, 1px `ink` border.
+- **Primary** (view the work, send message, project "visit"): `accent` fill, white text, mono font-medium, `px-6 py-3` (main CTAs) or `px-4 py-2` (card-scale "visit"). Hover: fill swaps to `ink`.
+- **Secondary/Ghost** (download résumé, project "source", hamburger toggle): transparent or `canvas-2` background, `ink` border, `ink` mono label. Hover: `canvas-2` background.
+- **Disabled** (form submit while sending): `disabled:opacity-60 disabled:cursor-not-allowed`, label swaps to present-tense "sending…".
 
 ### Chips
-- **Style:** `ink/50` background, `line` border, `faint` mono text at 11-12px, 4px radius, `px-2` to `px-2.5` by `py-0.5` to `py-1`. Used for skill tags in both the About spec sheet and project cards.
-- **State:** spec-sheet chips get a hover treatment (`hover:border-amber hover:text-amber`) since that panel is itself explorable; project-card chips are static, read-only metadata.
+- **Style:** `canvas` background, `line` border, `faint` mono text at 11-12px, 4px radius, `px-2` to `px-2.5` by `py-0.5` to `py-1`. Used for skill tags in both the About dependency manifest and project cards.
+- **State:** manifest chips get a hover treatment (`hover:border-accent hover:text-accent`) since that panel is itself explorable; project-card chips are static, read-only metadata.
 
 ### Cards / Containers
-- **Corner Style:** 12px (`rounded-xl`) for primary panels (hero status panel, spec-sheet, project cards, contact form); 8px (`rounded-lg`) for the smaller About credential blocks.
-- **Background:** `panel`, with a `panel-2` header bar where the card has an internal title row (spec-sheet, hero panel).
-- **Shadow Strategy:** none, except the hero panel (see Elevation & Depth).
+- **Corner Style:** 8px (`rounded-lg`) for primary panels (About, project cards, contact form, pipeline figure frame).
+- **Background:** `paper`, with a `canvas-2` header/strip where the card has an internal title row or its own diagram (About's manifest header, each project card's diagram strip).
+- **Shadow Strategy:** none; see Elevation & Depth.
 - **Border:** always `line`, 1px, full perimeter.
-- **Internal Padding:** 24px mobile / 32px `lg` for primary cards; 20px for the smaller credential blocks.
+- **Internal Padding:** 24px mobile / 32px `lg`.
 
 ### Inputs / Fields
-- **Style:** `ink/60` background, `line` border, 6px radius, `text-sm` Inter, `faint` placeholder text, `px-3.5 py-2.5`.
-- **Focus:** border shifts to `teal`, no ring or glow, `focus:outline-none` (the browser default outline is intentionally suppressed here since the border-color shift is the focus signal for form fields specifically; interactive elements elsewhere in the system keep the global `focus-visible` teal outline).
-- **Error:** field itself does not change color on error; a `text-xs text-error` (`red-400`) message appears below the field instead.
+- **Style:** `canvas` background, `line` border, 4px radius, DM Sans `text-sm`, `faint` placeholder text, `px-3.5 py-2.5`.
+- **Focus:** border shifts to `accent`, `focus:outline-none` on the field itself (the border-color shift is the field-level focus signal; interactive elements elsewhere keep the global `focus-visible` accent outline, including `.diagram-node:focus-visible`).
+- **Error:** field itself does not change color; a `text-xs text-error` message appears below it instead.
 
 ### Navigation
-- Fixed, translucent (`bg-ink/85`, `backdrop-blur-md`), `line` bottom border. Links are mono `text-sm`, `muted` default, `text` on hover, each prefixed with a teal `//` that brightens from 60% to 100% opacity on hover (mirrors the section-eyebrow device). A teal pill badge ("available", with pulse dot) sits at the end of the desktop link list. Mobile collapses to a hamburger toggling a full-width `MenuOverlay` with the same `//`-prefixed links stacked vertically.
+- Fixed, translucent (`bg-canvas/90`, `backdrop-blur-md`), `line` bottom border. Links are mono `text-sm`, `muted` default, `ink` on hover, each gaining a bottom-edge `accent` underline that draws in from 0 to full width on hover. A sharp-cornered "available" status badge (`accent`/`accent-dim`, pulsing dot) sits at the end of the desktop link list. Mobile collapses to a bordered hamburger toggle (Heroicons `Bars3Icon`/`XMarkIcon`) opening a full-width `MenuOverlay` with the same links stacked vertically.
 
-### Status Panel (signature component)
-The hero's console readout: a `panel` card with a `panel-2` header row showing a path-style label (`~/dhia · status`) and a teal "online" indicator with a pulsing dot. Body rows are mono key/value pairs (`role`, `based`, `langs`, `focus`) at fixed-width keys. A nested `ink/60` sub-panel below shows the "currently building" project with five animated feed bars (staggered `scaleY` pulse) standing in for live activity. This component is the one place the whole design language (mono voice, teal-live signal, hairline borders, the one permitted shadow) appears together, and it is the template for how any future "live status" surface on the site should be built.
+### The Diagram System (signature component)
+The system's one true signature, built from four parts under `src/app/components/diagram/`: **SystemDiagram** (the full pipeline figure: schedule → ingest → API → interface, plus the alert/retry loop, animated in on scroll with staggered node/edge reveals), **MiniFlow** (the same node/edge grammar at card scale, one per project, rendering that project's real architecture), **DiagramLegend** (a small mono key: solid line = data flow, dashed indigo = retry/alert, indigo dot = shipped & live), and **NodeBadge** (the corner ID tag, e.g. `N01`, `P01`, astride a container's top border). Nodes are `paper`-filled `ink`-stroked rectangles (`accent`-dim-filled and `accent`-stroked when the node is the "live" one, with a pulsing dot); solid `ink` edges carry the main data flow, dashed `accent` edges carry the retry/alert loop, both with directional arrowheads. Hovering, focusing, or clicking a node pins it (click toggles) and dims every non-connected node and edge to a uniform 0.2 opacity; this interaction has full keyboard support (`tabIndex={0}`, `role="button"`, Enter/Space via `onKeyDown`) and touch support (`onClick`), with `.diagram-node:focus-visible` carrying the same accent outline as every other interactive element. This is the template for how any future "show the system" surface on the site should be built.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep JetBrains Mono for every piece of interface chrome (nav, buttons, labels, badges, status text); it's as much the identity as the color palette.
-- **Do** use the `//` eyebrow device for any new section header, prefixed in `teal`.
-- **Do** use amber for exactly one focal action or state per screen; if two things both feel like they need amber, one of them is wrong.
-- **Do** build new elevated surfaces with a brighter neutral tone + `line` border before reaching for a shadow.
-- **Do** keep border radius scaled to role: 4px for tags, 6px for controls, 8-12px for containers, full for pills/dots.
+- **Do** keep the diagram interaction (hover/focus/click-to-pin, 0.2 uniform dim-on-inactive opacity) fully keyboard- and touch-operable on any new diagram-like component; match `tabIndex`/`role="button"`/`onKeyDown`/`.diagram-node:focus-visible`.
+- **Do** reserve IBM Plex Mono for literal/system-voice content (node IDs, edge labels, chips, counters, nav, buttons) and DM Sans for everything authored (headings, body, field/group labels, badge sentences, footer).
+- **Do** use indigo for exactly the "live/active/actionable" meaning; nothing else earns color.
+- **Do** build new elevated-feeling surfaces with a fill-step (canvas → canvas-2 → paper) plus a `line` border, never a shadow.
+- **Do** keep the radius split: 4px for controls and diagram nodes, 8px for containers, 0px (sharp) for ID badges and status pills.
 
 ### Don't:
-- **Don't** introduce a third signal color; amber and teal already cover the system's entire semantic range.
-- **Don't** add a second shadow anywhere; the hero status panel's shadow is spent, it does not establish a reusable elevation level.
-- **Don't** set body prose in JetBrains Mono, or interface chrome (buttons, nav, labels) in Inter; the role split between the two is deliberate and load-bearing.
-- **Don't** introduce a light mode or make `color-scheme` conditional; darkness is a structural commitment (`:root { color-scheme: dark }`), not a default left unset.
-- **Don't** use `error` (`red-400`) for anything besides form validation/error messaging.
+- **Don't** introduce a second accent color; indigo already covers the system's entire semantic range.
+- **Don't** add a shadow anywhere; the system is flat with no exceptions, not even for the hero.
+- **Don't** set headings or body prose in IBM Plex Mono, or chips/counters/nav/buttons in DM Sans; the split is deliberate and load-bearing.
+- **Don't** introduce a dark mode or make `color-scheme` conditional; light is a structural commitment (`:root { color-scheme: light }`), not a default left unset.
+- **Don't** use `error` (`#DC2626`) for anything besides contact-form validation.

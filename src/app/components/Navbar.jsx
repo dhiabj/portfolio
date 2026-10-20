@@ -15,17 +15,14 @@ const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-20 border-b border-line bg-ink/85 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 right-0 z-20 border-b border-line bg-canvas/90 backdrop-blur-md">
       <div className="container mx-auto flex flex-wrap items-center justify-between px-6 py-3 lg:px-12">
-        <Link
-          href="/#"
-          className="group flex items-center gap-2.5 font-mono text-sm">
-          <span className="flex h-7 w-7 items-center justify-center rounded border border-line bg-panel-2 text-xs font-semibold text-amber">
+        <Link href="/#" className="flex items-center gap-2.5">
+          <span className="flex h-7 w-7 items-center justify-center rounded border border-ink font-mono text-[11px] font-medium text-ink">
             DB
           </span>
-          <span className="text-text">
-            dhia
-            <span className="text-faint">.bejaoui</span>
+          <span className="font-mono text-sm text-ink">
+            dhia<span className="text-faint">.bejaoui</span>
           </span>
         </Link>
 
@@ -33,12 +30,8 @@ const Navbar = () => {
           <button
             aria-label={navbarOpen ? 'Close menu' : 'Open menu'}
             onClick={() => setNavbarOpen((v) => !v)}
-            className="flex items-center rounded border border-line bg-panel-2 px-2.5 py-2 text-muted transition-colors hover:text-text">
-            {navbarOpen ? (
-              <XMarkIcon className="h-5 w-5" />
-            ) : (
-              <Bars3Icon className="h-5 w-5" />
-            )}
+            className="flex items-center rounded border border-ink px-2.5 py-2 text-ink transition-colors hover:bg-canvas-2">
+            {navbarOpen ? <XMarkIcon className="h-5 w-5" /> : <Bars3Icon className="h-5 w-5" />}
           </button>
         </div>
 
@@ -50,8 +43,8 @@ const Navbar = () => {
               </li>
             ))}
             <li>
-              <span className="flex items-center gap-2 rounded-full border border-teal-dim bg-teal/10 px-3 py-1 font-mono text-xs text-teal">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal animate-pulse-dot" />
+              <span className="flex items-center gap-2 border border-accent bg-accent-dim px-3 py-1 text-xs text-accent">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-dot" />
                 available
               </span>
             </li>
